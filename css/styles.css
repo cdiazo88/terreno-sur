@@ -1017,10 +1017,12 @@ p {
     z-index: 1000;
     transition: right 0.3s ease;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .site-info-panel.active {
     right: 0;
+    transform: translateX(0);
 }
 
 .site-info-content {
@@ -1156,38 +1158,44 @@ p {
     
     .site-map {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 140px);
-        gap: 1px;
-        padding: 0.5rem;
-        min-width: 320px;
+        grid-template-rows: repeat(4, 150px);
+        gap: 2px;
+        padding: 0.8rem;
+        min-width: 350px;
         margin: 0;
         max-width: none;
     }
     
     .site-lot {
-        min-height: 140px;
+        min-height: 150px;
         border: 2px solid transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .lot-overlay {
-        padding: 0.5rem;
-        gap: 0.2rem;
+        padding: 0.6rem;
+        gap: 0.3rem;
+        text-align: center;
+        width: 100%;
     }
     
     .lot-number {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         font-weight: 700;
     }
     
     .lot-size {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         font-weight: 500;
     }
     
     .lot-status {
-        font-size: 0.65rem;
-        padding: 0.15rem 0.4rem;
-        border-radius: 3px;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 500;
     }
     
     .site-legend {
@@ -1211,13 +1219,20 @@ p {
         right: -100%;
         height: 100vh;
         border-radius: 0;
-        padding-top: 2rem;
+        padding-top: 0;
+        top: 0;
+        z-index: 9999;
+    }
+    
+    .site-info-panel.active {
+        right: 0;
     }
     
     .site-info-content {
         height: 100%;
         overflow-y: auto;
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
+        padding-top: 3rem;
     }
     
     .close-panel {
@@ -1250,32 +1265,43 @@ p {
     
     .site-map {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 120px);
-        gap: 2px;
-        padding: 0.3rem;
-        min-width: 280px;
+        grid-template-rows: repeat(6, 140px);
+        gap: 3px;
+        padding: 0.5rem;
+        min-width: 300px;
+        max-width: 100%;
     }
     
     .site-lot {
-        min-height: 120px;
+        min-height: 140px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .lot-overlay {
-        padding: 0.3rem;
-        gap: 0.1rem;
+        padding: 0.5rem;
+        gap: 0.2rem;
+        text-align: center;
+        width: 100%;
     }
     
     .lot-number {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        font-weight: 700;
     }
     
     .lot-size {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        font-weight: 500;
     }
     
     .lot-status {
-        font-size: 0.6rem;
-        padding: 0.1rem 0.3rem;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-weight: 500;
     }
     
     .site-legend {
@@ -1293,6 +1319,43 @@ p {
     .legend-color {
         width: 12px;
         height: 12px;
+    }
+}
+
+/* Small mobile devices (361px to 480px) */
+@media (max-width: 480px) and (min-width: 361px) {
+    .site-map {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 130px);
+        gap: 3px;
+        padding: 0.5rem;
+        min-width: 320px;
+    }
+    
+    .site-lot {
+        min-height: 130px;
+    }
+    
+    .lot-overlay {
+        padding: 0.4rem;
+        gap: 0.15rem;
+    }
+    
+    .lot-number {
+        font-size: 1.05rem;
+        font-weight: 700;
+    }
+    
+    .lot-size {
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .lot-status {
+        font-size: 0.68rem;
+        padding: 0.15rem 0.35rem;
+        border-radius: 4px;
+        font-weight: 500;
     }
 }
 
@@ -1320,32 +1383,42 @@ p {
     
     .site-map {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(6, 100px);
-        gap: 1px;
-        padding: 0.2rem;
-        min-width: 250px;
+        grid-template-rows: repeat(6, 120px);
+        gap: 2px;
+        padding: 0.4rem;
+        min-width: 280px;
+        max-width: 100%;
     }
     
     .site-lot {
-        min-height: 100px;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .lot-overlay {
-        padding: 0.2rem;
-        gap: 0.05rem;
+        padding: 0.4rem;
+        gap: 0.1rem;
+        text-align: center;
+        width: 100%;
     }
     
     .lot-number {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        font-weight: 700;
     }
     
     .lot-size {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
+        font-weight: 500;
     }
     
     .lot-status {
-        font-size: 0.55rem;
-        padding: 0.05rem 0.2rem;
+        font-size: 0.65rem;
+        padding: 0.1rem 0.3rem;
+        border-radius: 3px;
+        font-weight: 500;
     }
     
     .site-legend {

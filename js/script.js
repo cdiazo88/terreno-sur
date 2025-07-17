@@ -1019,57 +1019,112 @@ function initSitePlan() {
         
         siteInfoPanel.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // Force reflow for mobile
+        setTimeout(() => {
+            siteInfoPanel.style.right = '0';
+        }, 10);
     }
 
     function closeSitePanel() {
         siteInfoPanel.classList.remove('active');
         document.body.style.overflow = 'auto';
+        
+        // Ensure proper cleanup for mobile
+        setTimeout(() => {
+            siteInfoPanel.style.right = '';
+        }, 300);
     }
     
     // Mobile-specific improvements
     function initMobileOptimizations() {
-        // Improve touch interactions for mobile
-        if ('ontouchstart' in window) {
+        // Check if device is mobile
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            // Improve touch feedback for site lots
             siteLots.forEach(lot => {
-                lot.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
+                lot.addEventListener('touchstart', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                    this.style.transition = 'transform 0.1s ease';
                 });
                 
-                lot.addEventListener('touchend', function() {
+                lot.addEventListener('touchend', function(e) {
                     setTimeout(() => {
                         this.style.transform = 'scale(1)';
-                    }, 150);
+                    }, 100);
                 });
             });
             
+            // Improve panel opening on mobile
+            const originalShowSiteInfo = window.showSiteInfo;
+            window.showSiteInfo = function(siteInfo) {
+                // Ensure body scroll is properly handled
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${window.scrollY}px`;
+                document.body.style.width = '100%';
+                
+                // Call original function
+                originalShowSiteInfo.call(this, siteInfo);
+                
+                // Force panel to appear
+                setTimeout(() => {
+                    siteInfoPanel.style.transform = 'translateX(0)';
+                }, 50);
+            };
+            
+            // Improve panel closing on mobile
+            const originalCloseSitePanel = window.closeSitePanel;
+            window.closeSitePanel = function() {
+                // Restore body scroll
+                const scrollY = document.body.style.top;
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+                
+                // Call original function
+                originalCloseSitePanel.call(this);
+            };
+        }
+        
+        // Improve touch interactions for all devices
+        if ('ontouchstart' in window) {
             // Improve scrolling on mobile for site map
             const siteMapWrapper = document.querySelector('.site-map-wrapper');
             if (siteMapWrapper) {
-                siteMapWrapper.addEventListener('touchstart', function() {
-                    this.style.webkitOverflowScrolling = 'touch';
-                });
+                siteMapWrapper.style.webkitOverflowScrolling = 'touch';
+                siteMapWrapper.style.overflowScrolling = 'touch';
             }
             
             // Prevent zoom on double tap for site lots
             siteLots.forEach(lot => {
                 lot.addEventListener('touchend', function(e) {
                     e.preventDefault();
+                    // Trigger click after preventing default
+                    setTimeout(() => {
+                        this.click();
+                    }, 10);
                 });
             });
         }
         
-        // Adjust panel height for mobile keyboards
-        function adjustPanelForKeyboard() {
-            const panel = document.getElementById('siteInfoPanel');
-            if (panel.classList.contains('active')) {
-                const viewportHeight = window.innerHeight;
-                panel.style.height = `${viewportHeight}px`;
+        // Adjust panel height for mobile keyboards and orientation changes
+        function adjustPanelForMobile() {
+            if (window.innerWidth <= 768) {
+                const panel = document.getElementById('siteInfoPanel');
+                if (panel && panel.classList.contains('active')) {
+                    const viewportHeight = window.innerHeight;
+                    panel.style.height = `${viewportHeight}px`;
+                    panel.style.top = '0';
+                }
             }
         }
         
-        window.addEventListener('resize', adjustPanelForKeyboard);
+        // Listen for resize and orientation changes
+        window.addEventListener('resize', debounce(adjustPanelForMobile, 250));
         window.addEventListener('orientationchange', function() {
-            setTimeout(adjustPanelForKeyboard, 500);
+            setTimeout(adjustPanelForMobile, 500);
         });
     }
     
