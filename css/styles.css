@@ -74,6 +74,7 @@ p {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 2rem;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .section-title {
@@ -1114,58 +1115,270 @@ p {
 
 /* Responsive adjustments for site plan */
 @media (max-width: 768px) {
+    .site-plan {
+        padding: 4rem 0;
+    }
+    
+    .site-plan-intro {
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .site-plan-intro p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .site-plan-container {
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .plan-controls {
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .plan-filter {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+    }
+    
+    .site-map-wrapper {
+        margin-bottom: 1.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     .site-map {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 150px);
+        grid-template-rows: repeat(4, 140px);
         gap: 1px;
         padding: 0.5rem;
+        min-width: 320px;
+        margin: 0;
+        max-width: none;
+    }
+    
+    .site-lot {
+        min-height: 140px;
+        border: 2px solid transparent;
+    }
+    
+    .lot-overlay {
+        padding: 0.5rem;
+        gap: 0.2rem;
+    }
+    
+    .lot-number {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    
+    .lot-size {
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .lot-status {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+        border-radius: 3px;
+    }
+    
+    .site-legend {
+        margin-top: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .legend-items {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .legend-item {
+        font-size: 0.85rem;
     }
     
     .site-info-panel {
         width: 100%;
         right: -100%;
+        height: 100vh;
+        border-radius: 0;
+        padding-top: 2rem;
+    }
+    
+    .site-info-content {
+        height: 100%;
+        overflow-y: auto;
+        padding: 1.5rem;
+    }
+    
+    .close-panel {
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-plan {
+        padding: 3rem 0;
+    }
+    
+    .site-plan-container {
+        padding: 0 0.5rem;
     }
     
     .plan-controls {
-        gap: 0.5rem;
+        gap: 0.3rem;
+        padding: 0;
+        margin-bottom: 1rem;
     }
     
     .plan-filter {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+    
+    .site-map {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 120px);
+        gap: 2px;
+        padding: 0.3rem;
+        min-width: 280px;
+    }
+    
+    .site-lot {
+        min-height: 120px;
+    }
+    
+    .lot-overlay {
+        padding: 0.3rem;
+        gap: 0.1rem;
+    }
+    
+    .lot-number {
+        font-size: 1rem;
+    }
+    
+    .lot-size {
+        font-size: 0.7rem;
+    }
+    
+    .lot-status {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.3rem;
+    }
+    
+    .site-legend {
+        padding: 0 0.5rem;
+    }
+    
+    .legend-items {
+        gap: 0.8rem;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+    
+    .legend-color {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Extra small devices (very small phones) */
+@media (max-width: 360px) {
+    .site-plan {
+        padding: 2.5rem 0;
+    }
+    
+    .site-plan-container {
+        padding: 0 0.25rem;
+    }
+    
+    .plan-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .plan-filter {
+        width: 100%;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .site-map {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 100px);
+        gap: 1px;
+        padding: 0.2rem;
+        min-width: 250px;
+    }
+    
+    .site-lot {
+        min-height: 100px;
+    }
+    
+    .lot-overlay {
+        padding: 0.2rem;
+        gap: 0.05rem;
+    }
+    
+    .lot-number {
         font-size: 0.9rem;
+    }
+    
+    .lot-size {
+        font-size: 0.6rem;
+    }
+    
+    .lot-status {
+        font-size: 0.55rem;
+        padding: 0.05rem 0.2rem;
+    }
+    
+    .site-legend {
+        padding: 0 0.25rem;
     }
     
     .legend-items {
         flex-direction: column;
         gap: 0.5rem;
+        align-items: center;
     }
     
-    .lot-number {
+    .legend-item {
+        font-size: 0.75rem;
+    }
+    
+    .legend-color {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .site-info-panel {
+        padding-top: 1.5rem;
+    }
+    
+    .site-info-content {
+        padding: 1rem;
+    }
+    
+    .close-panel {
+        top: 0.5rem;
+        right: 0.5rem;
         font-size: 1.2rem;
-    }
-    
-    .lot-size {
-        font-size: 0.8rem;
-    }
-    
-    .lot-status {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-map {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 120px);
-    }
-    
-    .site-plan {
-        padding: 4rem 0;
-    }
-    
-    .site-plan-intro p {
-        font-size: 1rem;
     }
 }
 
@@ -1919,9 +2132,27 @@ p {
    Mobile Responsiveness for Gallery Modal
    ============================================================================= */
 @media (max-width: 768px) {
+    .site-gallery {
+        margin: 1.5rem 0;
+    }
+    
+    .site-gallery h4 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
     .site-gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.3rem;
+        gap: 0.4rem;
+    }
+    
+    .site-gallery-item {
+        border-radius: 6px;
+        aspect-ratio: 4/3;
+    }
+    
+    .site-gallery-item .gallery-icon {
+        font-size: 1.2rem;
     }
     
     .close-modal {
@@ -1957,5 +2188,82 @@ p {
     
     .modal-info p {
         font-size: 0.8rem;
+    }
+    
+    #modalImage {
+        max-height: 60vh;
+        border-radius: 6px;
+    }
+    
+    .modal-content {
+        padding: 1rem;
+        max-width: 95%;
+        max-height: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-gallery {
+        margin: 1rem 0;
+    }
+    
+    .site-gallery h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .site-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.3rem;
+    }
+    
+    .site-gallery-item .gallery-icon {
+        font-size: 1rem;
+    }
+    
+    .close-modal {
+        top: -25px;
+        right: -25px;
+        width: 25px;
+        height: 25px;
+        font-size: 1.2rem;
+    }
+    
+    .modal-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .modal-nav.prev {
+        left: -40px;
+    }
+    
+    .modal-nav.next {
+        right: -40px;
+    }
+    
+    .modal-info {
+        padding: 0.8rem;
+        margin-top: 0.3rem;
+    }
+    
+    .modal-info h4 {
+        font-size: 0.9rem;
+    }
+    
+    .modal-info p {
+        font-size: 0.75rem;
+    }
+    
+    #modalImage {
+        max-height: 50vh;
+        border-radius: 4px;
+    }
+    
+    .modal-content {
+        padding: 0.5rem;
+        max-width: 98%;
+        max-height: 98%;
     }
 }

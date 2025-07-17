@@ -1025,6 +1025,56 @@ function initSitePlan() {
         siteInfoPanel.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
+    
+    // Mobile-specific improvements
+    function initMobileOptimizations() {
+        // Improve touch interactions for mobile
+        if ('ontouchstart' in window) {
+            siteLots.forEach(lot => {
+                lot.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                lot.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+            
+            // Improve scrolling on mobile for site map
+            const siteMapWrapper = document.querySelector('.site-map-wrapper');
+            if (siteMapWrapper) {
+                siteMapWrapper.addEventListener('touchstart', function() {
+                    this.style.webkitOverflowScrolling = 'touch';
+                });
+            }
+            
+            // Prevent zoom on double tap for site lots
+            siteLots.forEach(lot => {
+                lot.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                });
+            });
+        }
+        
+        // Adjust panel height for mobile keyboards
+        function adjustPanelForKeyboard() {
+            const panel = document.getElementById('siteInfoPanel');
+            if (panel.classList.contains('active')) {
+                const viewportHeight = window.innerHeight;
+                panel.style.height = `${viewportHeight}px`;
+            }
+        }
+        
+        window.addEventListener('resize', adjustPanelForKeyboard);
+        window.addEventListener('orientationchange', function() {
+            setTimeout(adjustPanelForKeyboard, 500);
+        });
+    }
+    
+    // Initialize mobile optimizations
+    initMobileOptimizations();
 }
 
 function scheduleVisit(siteNumber) {
