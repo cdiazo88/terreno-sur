@@ -1,0 +1,33 @@
+{
+  "name": "lengaterra-website",
+  "version": "1.0.0",
+  "description": "Página web para promocionar la venta de sitios exclusivos en un bosque de lengas en la Patagonia chilena",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "echo 'Build process not configured yet'",
+    "deploy": "echo 'Deployment process not configured yet'"
+  },
+  "keywords": [
+    "patagonia",
+    "lengas",
+    "terrenos",
+    "conservacion",
+    "coyhaique",
+    "refugio-natural"
+  ],
+  "author": "Lengaterra Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdiazo88/terreno-sur.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cdiazo88/terreno-sur/issues"
+  },
+  "homepage": "https://github.com/cdiazo88/terreno-sur#readme"
+}

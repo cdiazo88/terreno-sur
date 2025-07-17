@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lengaterra - Refugio Natural en la Patagonia</title>
+    <meta name="description" content="Refugio natural exclusivo en bosque de lengas, Patagonia chilena. Terrenos únicos a 40 minutos de Coyhaique con compromiso de conservación.">
+    <meta name="keywords" content="refugio Patagonia, bosque de lengas, terrenos exclusivos Chile, Coyhaique, conservación natural">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Leaflet for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/56973948891" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Lengaterra</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#bosque">Nuestro Bosque</a></li>
+                <li><a href="#compromiso">Compromiso 5%</a></li>
+                <li><a href="#plano-sitios">Plano de Sitios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-video">
+            <video autoplay muted loop>
+                <source src="assets/videos/bosque-lenga-hero.mp4" type="video/mp4">
+                <!-- Fallback image -->
+                <img src="assets/images/hero-fallback.jpg" alt="Bosque de Lengas">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Lengaterra</h1>
+            <p class="hero-subtitle">Refugio Natural en la Patagonia Chilena</p>
+            <p class="hero-description">Un sueño de conservación y exclusividad en el corazón de la Patagonia</p>
+            <button class="cta-button primary" onclick="scrollToSection('introduccion')">Descubrir más</button>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduccion" class="introduction">
+        <div class="container">
+            <div class="intro-content">
+                <h2>El Sueño de un Refugio Natural</h2>
+                <p class="intro-text">
+                    En el corazón de la Patagonia chilena, donde los bosques de lengas se encuentran con cristalinos riachuelos, 
+                    nace Lengaterra: un proyecto único que combina la exclusividad con el respeto absoluto por la naturaleza.
+                </p>
+                <p class="intro-text">
+                    A solo 40 minutos de Coyhaique, este refugio natural ofrece una oportunidad excepcional de ser parte 
+                    de la conservación de uno de los ecosistemas más pristinos del mundo.
+                </p>
+                <div class="intro-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">46</span>
+                        <span class="stat-label">km de Coyhaique</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">14</span>
+                        <span class="stat-label">km de Villa Ortega</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.1</span>
+                        <span class="stat-label">Ton CO₂ absorbidas/año</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="ubicacion" class="location">
+        <div class="container">
+            <h2 class="section-title">Ubicación Privilegiada</h2>
+            <div class="location-grid">
+                <div class="location-info">
+                    <h3>En el Corazón de la Patagonia</h3>
+                    <p>
+                        Estratégicamente ubicado entre destinos icónicos como las Capillas de Mármol 
+                        y el Parque Nacional Queulat, Lengaterra ofrece acceso inmediato a las maravillas 
+                        naturales de la región.
+                    </p>
+                    <div class="location-points">
+                        <div class="point">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>46 km de Coyhaique</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>14 km de Villa Ortega</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-mountain"></i>
+                            <span>Cerca de Capillas de Mármol</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-tree"></i>
+                            <span>Próximo al Parque Nacional Queulat</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forest Section -->
+    <section id="bosque" class="forest">
+        <div class="container">
+            <h2 class="section-title">Nuestro Bosque de Lengas</h2>
+            <div class="forest-grid">
+                <div class="forest-info">
+                    <h3>Nothofagus pumilio</h3>
+                    <p class="forest-description">
+                        Las lengas son árboles nativos de la Patagonia que pueden vivir más de 200 años. 
+                        Su crecimiento lento y resistencia a las condiciones extremas las convierten en 
+                        guardianes silenciosos de este ecosistema único.
+                    </p>
+                    <div class="forest-facts">
+                        <div class="fact">
+                            <h4>Crecimiento Sostenible</h4>
+                            <p>Cada árbol absorbe CO₂ durante décadas, contribuyendo activamente a la lucha contra el cambio climático.</p>
+                        </div>
+                        <div class="fact">
+                            <h4>Biodiversidad</h4>
+                            <p>El bosque alberga una rica variedad de fauna patagónica, desde cóndores hasta huemules.</p>
+                        </div>
+                        <div class="fact">
+                            <h4>Conservación</h4>
+                            <p>Protegemos este ecosistema milenario para las futuras generaciones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="forest-gallery">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="assets/images/lengas-1.jpg" alt="Bosque de Lengas en otoño">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/lengas-2.jpg" alt="Sendero entre lengas">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/lengas-3.jpg" alt="Riachuelo en el bosque">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/lengas-4.jpg" alt="Vista panorámica del bosque">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section id="compromiso" class="commitment">
+        <div class="container">
+            <h2 class="section-title">Compromiso del 5%</h2>
+            <div class="commitment-content">
+                <div class="commitment-text">
+                    <h3>Intervención Mínima, Impacto Máximo</h3>
+                    <p>
+                        Nuestra filosofía se basa en la intervención mínima del ecosistema. 
+                        Solo el 5% de cada terreno puede ser destinado a construcción, 
+                        garantizando que el 95% restante permanezca intacto para siempre.
+                    </p>
+                    <div class="commitment-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-leaf"></i>
+                            <span>95% del terreno protegido</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-home"></i>
+                            <span>Construcción sostenible</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Preservación perpetua</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="commitment-visual">
+                    <div class="percentage-chart">
+                        <div class="chart-circle">
+                            <div class="percentage-fill" data-percentage="95"></div>
+                            <div class="chart-content">
+                                <span class="chart-number">95%</span>
+                                <span class="chart-label">Conservación</span>
+                            </div>
+                        </div>
+                        <div class="chart-info">
+                            <div class="info-item construction">
+                                <span class="color-box"></span>
+                                <span>5% Construcción</span>
+                            </div>
+                            <div class="info-item conservation">
+                                <span class="color-box"></span>
+                                <span>95% Conservación</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Footprint Section -->
+    <section id="huella-carbono" class="carbon-footprint">
+        <div class="container">
+            <div class="carbon-content">
+                <h2 class="section-title">Huella de Carbono Negativa</h2>
+                <div class="carbon-grid">
+                    <div class="carbon-info">
+                        <h3>Cada Lote, Un Héroe Climático</h3>
+                        <p>
+                            Cada terreno en Lengaterra absorbe aproximadamente 4.1 toneladas de CO₂ al año, 
+                            convirtiendo tu inversión en una contribución activa contra el cambio climático.
+                        </p>
+                        <div class="carbon-stats">
+                            <div class="carbon-stat">
+                                <span class="stat-number">4.1</span>
+                                <span class="stat-unit">Ton CO₂/año</span>
+                                <span class="stat-description">Absorción por lote</span>
+                            </div>
+                            <div class="carbon-stat">
+                                <span class="stat-number">200+</span>
+                                <span class="stat-unit">Años</span>
+                                <span class="stat-description">Vida útil de las lengas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carbon-visual">
+                        <div class="co2-animation">
+                            <div class="tree-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="co2-particles">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
+                            <div class="absorption-text">4.1 Ton CO₂</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="propuesta-valor" class="value-proposition">
+        <div class="container">
+            <h2 class="section-title">Exclusividad y Rentabilidad</h2>
+            <div class="value-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Exclusividad</h3>
+                    <p>Limitados lotes disponibles en una ubicación única e irrepetible</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Rentabilidad</h3>
+                    <p>Inversión en un activo natural con potencial de revalorización</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Contribución directa a la conservación ambiental</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguridad</h3>
+                    <p>Inversión respaldada por activos naturales tangibles</p>
+                </div>
+            </div>
+            <div class="value-cta">
+                <button class="cta-button secondary" onclick="scrollToSection('contacto')">Más Información</button>
+                <button class="cta-button primary" onclick="scrollToSection('contacto')">Reservar Ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Site Plan Section -->
+    <section id="plano-sitios" class="site-plan">
+        <div class="container">
+            <h2 class="section-title">Plano de Sitios Disponibles</h2>
+            <div class="site-plan-intro">
+                <p>Cada sitio ha sido cuidadosamente planificado para maximizar la privacidad y minimizar el impacto ambiental. Explora nuestro plano interactivo y descubre tu lugar ideal en la Patagonia.</p>
+            </div>
+            
+            <div class="site-plan-container">
+                <div class="plan-controls">
+                    <button class="plan-filter active" data-filter="all">Todos los Sitios</button>
+                    <button class="plan-filter" data-filter="disponible">Disponibles</button>
+                    <button class="plan-filter" data-filter="reservado">Reservados</button>
+                    <button class="plan-filter" data-filter="vendido">Vendidos</button>
+                </div>
+                
+                <div class="site-map-wrapper">
+                    <div class="site-map">
+                        <!-- Sitio 1 -->
+                        <div class="site-lot disponible" data-site="1" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">01</span>
+                                <span class="lot-size">2.5 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 2 -->
+                        <div class="site-lot disponible" data-site="2" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">02</span>
+                                <span class="lot-size">3.2 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 3 -->
+                        <div class="site-lot reservado" data-site="3" data-status="reservado">
+                            <div class="lot-overlay">
+                                <span class="lot-number">03</span>
+                                <span class="lot-size">2.8 Ha</span>
+                                <span class="lot-status">Reservado</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 4 -->
+                        <div class="site-lot disponible" data-site="4" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">04</span>
+                                <span class="lot-size">4.1 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 5 -->
+                        <div class="site-lot vendido" data-site="5" data-status="vendido">
+                            <div class="lot-overlay">
+                                <span class="lot-number">05</span>
+                                <span class="lot-size">2.9 Ha</span>
+                                <span class="lot-status">Vendido</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 6 -->
+                        <div class="site-lot disponible" data-site="6" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">06</span>
+                                <span class="lot-size">3.5 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 7 -->
+                        <div class="site-lot disponible" data-site="7" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">07</span>
+                                <span class="lot-size">2.7 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 8 -->
+                        <div class="site-lot reservado" data-site="8" data-status="reservado">
+                            <div class="lot-overlay">
+                                <span class="lot-number">08</span>
+                                <span class="lot-size">3.8 Ha</span>
+                                <span class="lot-status">Reservado</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 9 -->
+                        <div class="site-lot disponible" data-site="9" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">09</span>
+                                <span class="lot-size">4.2 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 10 -->
+                        <div class="site-lot disponible" data-site="10" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">10</span>
+                                <span class="lot-size">3.1 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 11 -->
+                        <div class="site-lot vendido" data-site="11" data-status="vendido">
+                            <div class="lot-overlay">
+                                <span class="lot-number">11</span>
+                                <span class="lot-size">2.6 Ha</span>
+                                <span class="lot-status">Vendido</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sitio 12 -->
+                        <div class="site-lot disponible" data-site="12" data-status="disponible">
+                            <div class="lot-overlay">
+                                <span class="lot-number">12</span>
+                                <span class="lot-size">3.9 Ha</span>
+                                <span class="lot-status">Disponible</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="site-legend">
+                    <h3>Leyenda</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-color disponible"></div>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color reservado"></div>
+                            <span>Reservado</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color vendido"></div>
+                            <span>Vendido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="site-info-panel" id="siteInfoPanel">
+                <div class="site-info-content">
+                    <button class="close-panel" id="closeSitePanel">&times;</button>
+                    <h3 id="siteTitle">Selecciona un sitio</h3>
+                    <div class="site-details" id="siteDetails">
+                        <p>Haz clic en cualquier sitio del plano para ver información detallada.</p>
+                    </div>
+                    <div class="site-gallery" id="siteGallery">
+                        <h4>Galería del Sitio</h4>
+                        <div class="site-gallery-grid" id="siteGalleryGrid">
+                            <!-- Las imágenes se cargarán dinámicamente aquí -->
+                        </div>
+                    </div>
+                    <div class="site-actions" id="siteActions">
+                        <button class="cta-button primary" onclick="scrollToSection('contacto')">Consultar Disponibilidad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            <div class="gallery-container">
+                <div class="gallery-item large">
+                    <img src="assets/images/gallery-1.jpg" alt="Sendero principal del bosque">
+                    <div class="gallery-overlay">
+                        <h3>Senderos Naturales</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery-2.jpg" alt="Riachuelo cristalino">
+                    <div class="gallery-overlay">
+                        <h3>Riachuelos Cristalinos</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery-3.jpg" alt="Vista panorámica">
+                    <div class="gallery-overlay">
+                        <h3>Vistas Panorámicas</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery-4.jpg" alt="Fauna nativa">
+                    <div class="gallery-overlay">
+                        <h3>Fauna Nativa</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery-5.jpg" alt="Bosque en otoño">
+                    <div class="gallery-overlay">
+                        <h3>Colores de Otoño</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery-6.jpg" alt="Refugio natural">
+                    <div class="gallery-overlay">
+                        <h3>Refugio Natural</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Conversemos sobre tu refugio en la Patagonia</h3>
+                    <p>
+                        Estamos aquí para responder todas tus preguntas y ayudarte a formar parte 
+                        de este proyecto único de conservación.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">contacto@lengaterra.cl</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="contact-label">Teléfono</span>
+                                <span class="contact-value">+56 9 7394 8891</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <span class="contact-label">WhatsApp</span>
+                                <span class="contact-value">+56 9 7394 8891</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" novalidate>
+                        <!-- Honeypot field (hidden from users, visible to bots) -->
+                        <div class="honeypot" style="display: none;">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="nombre" name="nombre" required maxlength="50" autocomplete="name">
+                            <label for="nombre">Nombre completo</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                            <label for="email">Correo electrónico</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+                            <label for="telefono">Teléfono</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="mensaje" name="mensaje" rows="5" required maxlength="1000"></textarea>
+                            <label for="mensaje">Mensaje</label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">
+                                Acepto la <a href="#" target="_blank">política de privacidad</a> y el tratamiento de mis datos personales
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="cta-button primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Lengaterra</h3>
+                    <p>Refugio Natural en la Patagonia Chilena</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#ubicacion">Ubicación</a>
+                    <a href="#bosque">Nuestro Bosque</a>
+                    <a href="#compromiso">Compromiso 5%</a>
+                    <a href="#plano-sitios">Plano de Sitios</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lengaterra. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal for Site Gallery -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h4 id="modalTitle"></h4>
+                <p id="modalDescription"></p>
+            </div>
+            <div class="modal-navigation">
+                <button class="modal-nav prev" id="modalPrev">‹</button>
+                <button class="modal-nav next" id="modalNext">›</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
