@@ -598,28 +598,28 @@ function initSitePlan() {
             description: "Sitio con excelente vista al valle y acceso directo al sendero principal.",
             features: ["Vista panorámica", "Acceso vehicular", "Riachuelo cercano", "Bosque maduro"],
             coordinates: "45°30'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-01/vista-panoramica.jpg",
-                    title: "Vista Panorámica del Valle",
-                    description: "Impresionante vista hacia el valle desde el punto más alto del sitio."
-                },
-                {
-                    src: "assets/images/sitios/sitio-01/acceso-vehicular.jpg",
-                    title: "Acceso Vehicular",
-                    description: "Camino de acceso directo para vehículos 4x4."
-                },
-                {
-                    src: "assets/images/sitios/sitio-01/riachuelo.jpg",
-                    title: "Riachuelo Cristalino",
-                    description: "Riachuelo que bordea el sitio con agua cristalina todo el año."
-                },
-                {
-                    src: "assets/images/sitios/sitio-01/bosque.jpg",
-                    title: "Bosque de Lengas Maduro",
-                    description: "Bosque nativo con árboles centenarios perfectamente conservados."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-01/vista-panoramica.jpg",
+            //         title: "Vista Panorámica del Valle",
+            //         description: "Impresionante vista hacia el valle desde el punto más alto del sitio."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-01/acceso-vehicular.jpg",
+            //         title: "Acceso Vehicular",
+            //         description: "Camino de acceso directo para vehículos 4x4."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-01/riachuelo.jpg",
+            //         title: "Riachuelo Cristalino",
+            //         description: "Riachuelo que bordea el sitio con agua cristalina todo el año."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-01/bosque.jpg",
+            //         title: "Bosque de Lengas Maduro",
+            //         description: "Bosque nativo con árboles centenarios perfectamente conservados."
+            //     }
+            // ]
         },
         2: {
             number: "02",
@@ -629,23 +629,23 @@ function initSitePlan() {
             description: "Terreno amplio con diversidad de microclimas y abundante vegetación nativa.",
             features: ["Mayor superficie", "Diversidad de flora", "Privacidad total", "Orientación norte"],
             coordinates: "45°30'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-02/microclimas.jpg",
-                    title: "Diversidad de Microclimas",
-                    description: "Diferentes zonas con microclimas únicos que favorecen la biodiversidad."
-                },
-                {
-                    src: "assets/images/sitios/sitio-02/flora-nativa.jpg",
-                    title: "Flora Nativa",
-                    description: "Abundante vegetación nativa en perfecto estado de conservación."
-                },
-                {
-                    src: "assets/images/sitios/sitio-02/privacidad.jpg",
-                    title: "Privacidad Total",
-                    description: "Ubicación aislada que garantiza privacidad absoluta."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-02/microclimas.jpg",
+            //         title: "Diversidad de Microclimas",
+            //         description: "Diferentes zonas con microclimas únicos que favorecen la biodiversidad."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-02/flora-nativa.jpg",
+            //         title: "Flora Nativa",
+            //         description: "Abundante vegetación nativa en perfecto estado de conservación."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-02/privacidad.jpg",
+            //         title: "Privacidad Total",
+            //         description: "Ubicación aislada que garantiza privacidad absoluta."
+            //     }
+            // ]
         },
         3: {
             number: "03",
@@ -655,13 +655,13 @@ function initSitePlan() {
             description: "Sitio reservado con características excepcionales.",
             features: ["Reservado por cliente", "Características premium", "Ubicación privilegiada"],
             coordinates: "45°29'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-03/vista-especial.jpg",
-                    title: "Vista Especial",
-                    description: "Ubicación privilegiada con vista única del bosque."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-03/vista-especial.jpg",
+            //         title: "Vista Especial",
+            //         description: "Ubicación privilegiada con vista única del bosque."
+            //     }
+            // ]
         },
         4: {
             number: "04",
@@ -671,23 +671,23 @@ function initSitePlan() {
             description: "El sitio más grande disponible, ideal para desarrollo de proyecto familiar.",
             features: ["Mayor superficie", "Múltiples zonas", "Potencial construcción", "Acceso secundario"],
             coordinates: "45°29'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-04/superficie-grande.jpg",
-                    title: "Mayor Superficie",
-                    description: "El sitio más extenso con 4.1 hectáreas de pura naturaleza."
-                },
-                {
-                    src: "assets/images/sitios/sitio-04/zonas-multiples.jpg",
-                    title: "Múltiples Zonas",
-                    description: "Diferentes zonas perfectas para diversos usos y desarrollos."
-                },
-                {
-                    src: "assets/images/sitios/sitio-04/potencial.jpg",
-                    title: "Potencial de Desarrollo",
-                    description: "Amplias posibilidades para proyecto familiar sostenible."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-04/superficie-grande.jpg",
+            //         title: "Mayor Superficie",
+            //         description: "El sitio más extenso con 4.1 hectáreas de pura naturaleza."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-04/zonas-multiples.jpg",
+            //         title: "Múltiples Zonas",
+            //         description: "Diferentes zonas perfectas para diversos usos y desarrollos."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-04/potencial.jpg",
+            //         title: "Potencial de Desarrollo",
+            //         description: "Amplias posibilidades para proyecto familiar sostenible."
+            //     }
+            // ]
         },
         5: {
             number: "05",
@@ -697,13 +697,13 @@ function initSitePlan() {
             description: "Sitio vendido a familia conservacionista.",
             features: ["Vendido", "Proyecto de conservación", "Desarrollo sostenible"],
             coordinates: "45°28'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-05/proyecto-conservacion.jpg",
-                    title: "Proyecto de Conservación",
-                    description: "Ejemplo de desarrollo sostenible en armonía con el entorno."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-05/proyecto-conservacion.jpg",
+            //         title: "Proyecto de Conservación",
+            //         description: "Ejemplo de desarrollo sostenible en armonía con el entorno."
+            //     }
+            // ]
         },
         6: {
             number: "06",
@@ -713,23 +713,23 @@ function initSitePlan() {
             description: "Sitio con características únicas para observación de fauna.",
             features: ["Observación fauna", "Tranquilidad total", "Bosque pristino", "Microclima especial"],
             coordinates: "45°28'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-06/observacion-fauna.jpg",
-                    title: "Observación de Fauna",
-                    description: "Punto privilegiado para observar cóndores y huemules."
-                },
-                {
-                    src: "assets/images/sitios/sitio-06/tranquilidad.jpg",
-                    title: "Tranquilidad Total",
-                    description: "Rincón de paz absoluta alejado del ruido urbano."
-                },
-                {
-                    src: "assets/images/sitios/sitio-06/bosque-pristino.jpg",
-                    title: "Bosque Prístino",
-                    description: "Bosque virgen en estado natural sin intervención humana."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-06/observacion-fauna.jpg",
+            //         title: "Observación de Fauna",
+            //         description: "Punto privilegiado para observar cóndores y huemules."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-06/tranquilidad.jpg",
+            //         title: "Tranquilidad Total",
+            //         description: "Rincón de paz absoluta alejado del ruido urbano."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-06/bosque-pristino.jpg",
+            //         title: "Bosque Prístino",
+            //         description: "Bosque virgen en estado natural sin intervención humana."
+            //     }
+            // ]
         },
         7: {
             number: "07",
@@ -739,18 +739,18 @@ function initSitePlan() {
             description: "Perfecto para quienes buscan un refugio íntimo en la naturaleza.",
             features: ["Intimidad", "Bosque denso", "Protección natural", "Acceso privado"],
             coordinates: "45°27'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-07/refugio-intimo.jpg",
-                    title: "Refugio Íntimo",
-                    description: "Espacio perfecto para un refugio personal en la naturaleza."
-                },
-                {
-                    src: "assets/images/sitios/sitio-07/bosque-denso.jpg",
-                    title: "Bosque Denso",
-                    description: "Vegetación densa que proporciona privacidad natural."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-07/refugio-intimo.jpg",
+            //         title: "Refugio Íntimo",
+            //         description: "Espacio perfecto para un refugio personal en la naturaleza."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-07/bosque-denso.jpg",
+            //         title: "Bosque Denso",
+            //         description: "Vegetación densa que proporciona privacidad natural."
+            //     }
+            // ]
         },
         8: {
             number: "08",
@@ -760,13 +760,13 @@ function initSitePlan() {
             description: "Sitio reservado con proceso de compra en curso.",
             features: ["En proceso", "Características premium", "Ubicación estratégica"],
             coordinates: "45°27'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-08/ubicacion-estrategica.jpg",
-                    title: "Ubicación Estratégica",
-                    description: "Posición privilegiada con acceso a múltiples senderos."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-08/ubicacion-estrategica.jpg",
+            //         title: "Ubicación Estratégica",
+            //         description: "Posición privilegiada con acceso a múltiples senderos."
+            //     }
+            // ]
         },
         9: {
             number: "09",
@@ -776,23 +776,23 @@ function initSitePlan() {
             description: "Sitio premium con la mayor superficie y características excepcionales.",
             features: ["Superficie máxima", "Características únicas", "Ubicación premium", "Múltiples accesos"],
             coordinates: "45°26'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-09/superficie-maxima.jpg",
-                    title: "Superficie Máxima",
-                    description: "El sitio más grande con 4.2 hectáreas de territorio virgen."
-                },
-                {
-                    src: "assets/images/sitios/sitio-09/caracteristicas-unicas.jpg",
-                    title: "Características Únicas",
-                    description: "Formaciones rocosas y cascadas naturales exclusivas."
-                },
-                {
-                    src: "assets/images/sitios/sitio-09/multiples-accesos.jpg",
-                    title: "Múltiples Accesos",
-                    description: "Diversos caminos de acceso para mayor comodidad."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-09/superficie-maxima.jpg",
+            //         title: "Superficie Máxima",
+            //         description: "El sitio más grande con 4.2 hectáreas de territorio virgen."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-09/caracteristicas-unicas.jpg",
+            //         title: "Características Únicas",
+            //         description: "Formaciones rocosas y cascadas naturales exclusivas."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-09/multiples-accesos.jpg",
+            //         title: "Múltiples Accesos",
+            //         description: "Diversos caminos de acceso para mayor comodidad."
+            //     }
+            // ]
         },
         10: {
             number: "10",
@@ -802,18 +802,18 @@ function initSitePlan() {
             description: "Equilibrio perfecto entre superficie y funcionalidad.",
             features: ["Superficie balanceada", "Funcionalidad", "Acceso directo", "Vista despejada"],
             coordinates: "45°26'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-10/equilibrio.jpg",
-                    title: "Equilibrio Perfecto",
-                    description: "Tamaño ideal que combina amplitud con manejo sustentable."
-                },
-                {
-                    src: "assets/images/sitios/sitio-10/vista-despejada.jpg",
-                    title: "Vista Despejada",
-                    description: "Panorámica sin obstáculos hacia las montañas circundantes."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-10/equilibrio.jpg",
+            //         title: "Equilibrio Perfecto",
+            //         description: "Tamaño ideal que combina amplitud con manejo sustentable."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-10/vista-despejada.jpg",
+            //         title: "Vista Despejada",
+            //         description: "Panorámica sin obstáculos hacia las montañas circundantes."
+            //     }
+            // ]
         },
         11: {
             number: "11",
@@ -823,13 +823,13 @@ function initSitePlan() {
             description: "Sitio vendido a inversionistas extranjeros.",
             features: ["Vendido", "Inversión internacional", "Proyecto ecoturístico"],
             coordinates: "45°25'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-11/proyecto-ecoturistico.jpg",
-                    title: "Proyecto Ecoturístico",
-                    description: "Desarrollo de turismo sostenible respetando el entorno."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-11/proyecto-ecoturistico.jpg",
+            //         title: "Proyecto Ecoturístico",
+            //         description: "Desarrollo de turismo sostenible respetando el entorno."
+            //     }
+            // ]
         },
         12: {
             number: "12",
@@ -839,23 +839,23 @@ function initSitePlan() {
             description: "Último sitio de gran superficie disponible con características premium.",
             features: ["Última oportunidad", "Superficie grande", "Características premium", "Ubicación final"],
             coordinates: "45°25'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-12/ultima-oportunidad.jpg",
-                    title: "Última Oportunidad",
-                    description: "El último sitio de gran superficie disponible en Lengaterra."
-                },
-                {
-                    src: "assets/images/sitios/sitio-12/superficie-grande.jpg",
-                    title: "Superficie Grande",
-                    description: "3.9 hectáreas de territorio virgen con múltiples posibilidades."
-                },
-                {
-                    src: "assets/images/sitios/sitio-12/caracteristicas-premium.jpg",
-                    title: "Características Premium",
-                    description: "Ubicación final con las mejores características del proyecto."
-                }
-            ]
+            // gallery: [
+            //     {
+            //         src: "assets/images/sitios/sitio-12/ultima-oportunidad.jpg",
+            //         title: "Última Oportunidad",
+            //         description: "El último sitio de gran superficie disponible en Lengaterra."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-12/superficie-grande.jpg",
+            //         title: "Superficie Grande",
+            //         description: "3.9 hectáreas de territorio virgen con múltiples posibilidades."
+            //     },
+            //     {
+            //         src: "assets/images/sitios/sitio-12/caracteristicas-premium.jpg",
+            //         title: "Características Premium",
+            //         description: "Ubicación final con las mejores características del proyecto."
+            //     }
+            // ]
         }
     };
 
