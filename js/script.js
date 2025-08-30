@@ -554,13 +554,8 @@ function openGalleryModal(imageName, imageTitle) {
         modalImg.alt = imageTitle;
         modalTitle.textContent = imageTitle;
         
-        // Prevent scroll del fondo
-        const body = document.body;
-        const scrollY = window.scrollY;
-        body.dataset.scrollY = scrollY;
-        body.style.position = 'fixed';
-        body.style.top = `-${scrollY}px`;
-        body.style.width = '100%';
+        // Usar función auxiliar mejorada
+        fixScroll();
         
         modal.classList.add('active');
         
@@ -929,8 +924,10 @@ function initSitePlan() {
     });
 
     function showSiteInfo(siteInfo) {
-        // Store current scroll position using unified method
-        fixScroll();
+        // Solo aplicar fixScroll si el panel no está ya abierto
+        if (!siteInfoPanel.classList.contains('active')) {
+            fixScroll();
+        }
         
         siteTitle.textContent = `Sitio ${siteInfo.number}`;
         
@@ -1182,12 +1179,15 @@ function restoreScroll() {
 // Función auxiliar para fijar scroll
 function fixScroll() {
     const body = document.body;
-    const scrollY = window.scrollY;
     
-    body.dataset.scrollY = scrollY;
-    body.style.position = 'fixed';
-    body.style.top = `-${scrollY}px`;
-    body.style.width = '100%';
+    // Solo guardar la posición si no está ya guardada
+    if (!body.dataset.scrollY) {
+        const scrollY = window.scrollY;
+        body.dataset.scrollY = scrollY;
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.width = '100%';
+    }
 }
 
 // =============================================================================
