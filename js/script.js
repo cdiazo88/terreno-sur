@@ -1,12 +1,12 @@
-// =============================================================================
-// Global Variables
-// =============================================================================
+// // =============================================================================
+// // Global Variables
+// // =============================================================================
 let map;
 let isScrolling = false;
 
-// =============================================================================
-// DOM Content Loaded
-// =============================================================================
+// // =============================================================================
+// // DOM Content Loaded
+// // =============================================================================
 document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initScrollReveal();
@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initPercentageChart();
     initParallaxEffect();
-    initGalleryModal();
     initSitePlan();
+    initGalleryModal();
 });
 
-// =============================================================================
-// Navigation Functions
-// =============================================================================
+// // =============================================================================
+// // Navigation Functions
+// // =============================================================================
 function initNavigation() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -52,9 +52,9 @@ function initNavigation() {
     });
 }
 
-// =============================================================================
-// Smooth Scroll Function
-// =============================================================================
+// // =============================================================================
+// // Smooth Scroll Function
+// // =============================================================================
 function initSmoothScroll() {
     const navLinks = document.querySelectorAll('.nav-menu a');
     
@@ -86,65 +86,65 @@ function scrollToSection(sectionId) {
     }
 }
 
-// =============================================================================
-// ScrollReveal Animations
-// =============================================================================
-function initScrollReveal() {
-    if (typeof ScrollReveal !== 'undefined') {
-        const sr = ScrollReveal({
-            origin: 'bottom',
-            distance: '60px',
-            duration: 1000,
-            delay: 100,
-            reset: false
-        });
+// // =============================================================================
+// // ScrollReveal Animations
+// // =============================================================================
+// function initScrollReveal() {
+//     if (typeof ScrollReveal !== 'undefined') {
+//         const sr = ScrollReveal({
+//             origin: 'bottom',
+//             distance: '60px',
+//             duration: 1000,
+//             delay: 100,
+//             reset: false
+//         });
         
-        // Hero section
-        sr.reveal('.hero-title', { delay: 200 });
-        sr.reveal('.hero-subtitle', { delay: 400 });
-        sr.reveal('.hero-description', { delay: 600 });
-        sr.reveal('.cta-button', { delay: 800 });
+//         // Hero section
+//         sr.reveal('.hero-title', { delay: 200 });
+//         sr.reveal('.hero-subtitle', { delay: 400 });
+//         sr.reveal('.hero-description', { delay: 600 });
+//         sr.reveal('.cta-button', { delay: 800 });
         
-        // Section titles
-        sr.reveal('.section-title', { delay: 200 });
+//         // Section titles
+//         sr.reveal('.section-title', { delay: 200 });
         
-        // Introduction section
-        sr.reveal('.intro-content h2', { delay: 300 });
-        sr.reveal('.intro-text', { delay: 400, interval: 200 });
-        sr.reveal('.stat-item', { delay: 500, interval: 100 });
+//         // Introduction section
+//         sr.reveal('.intro-content h2', { delay: 300 });
+//         sr.reveal('.intro-text', { delay: 400, interval: 200 });
+//         sr.reveal('.stat-item', { delay: 500, interval: 100 });
         
-        // Location section
-        sr.reveal('.location-info', { origin: 'left', delay: 300 });
-        sr.reveal('.location-map', { origin: 'right', delay: 400 });
+//         // Location section
+//         sr.reveal('.location-info', { origin: 'left', delay: 300 });
+//         sr.reveal('.location-map', { origin: 'right', delay: 400 });
         
-        // Forest section
-        sr.reveal('.forest-info', { origin: 'left', delay: 300 });
-        sr.reveal('.forest-gallery', { origin: 'right', delay: 400 });
+//         // Forest section
+//         sr.reveal('.forest-info', { origin: 'left', delay: 300 });
+//         sr.reveal('.forest-gallery', { origin: 'right', delay: 400 });
         
-        // Commitment section
-        sr.reveal('.commitment-text', { origin: 'left', delay: 300 });
-        sr.reveal('.commitment-visual', { origin: 'right', delay: 400 });
+//         // Commitment section
+//         sr.reveal('.commitment-text', { origin: 'left', delay: 300 });
+//         sr.reveal('.commitment-visual', { origin: 'right', delay: 400 });
         
-        // Carbon footprint section
-        sr.reveal('.carbon-info', { origin: 'left', delay: 300 });
-        sr.reveal('.carbon-visual', { origin: 'right', delay: 400 });
+//         // Carbon footprint section
+//         sr.reveal('.carbon-info', { origin: 'left', delay: 300 });
+//         sr.reveal('.carbon-visual', { origin: 'right', delay: 400 });
         
-        // Value proposition
-        sr.reveal('.value-item', { delay: 200, interval: 100 });
-        sr.reveal('.value-cta', { delay: 600 });
+//         // Value proposition
+//         sr.reveal('.value-item', { delay: 200, interval: 100 });
+//         sr.reveal('.value-cta', { delay: 600 });
         
-        // Gallery
-        sr.reveal('.gallery-item', { delay: 200, interval: 100 });
+//         // Gallery
+//         sr.reveal('.gallery-item', { delay: 200, interval: 100 });
         
-        // Contact section
-        sr.reveal('.contact-info', { origin: 'left', delay: 300 });
-        sr.reveal('.contact-form', { origin: 'right', delay: 400 });
-    }
-}
+//         // Contact section
+//         sr.reveal('.contact-info', { origin: 'left', delay: 300 });
+//         sr.reveal('.contact-form', { origin: 'right', delay: 400 });
+//     }
+// }
 
-// =============================================================================
-// Map Initialization
-// =============================================================================
+// // =============================================================================
+// // Map Initialization
+// // =============================================================================
 function initMap() {
     // Coordinates for the forest location (approximate)
     const forestLocation = [-45.5, -71.5]; // Approximate coordinates
@@ -160,14 +160,14 @@ function initMap() {
         
         // Custom icons
         const forestIcon = L.icon({
-            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjMmM0YzNiIi8+Cjwvc3ZnPg==',
+            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA9TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjMmM0YzNiIi8+Cjwvc3ZnPg==',
             iconSize: [30, 30],
             iconAnchor: [15, 15],
             popupAnchor: [0, -15]
         });
         
         const cityIcon = L.icon({
-            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPg==',
+            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPg==',
             iconSize: [25, 25],
             iconAnchor: [12, 12],
             popupAnchor: [0, -12]
@@ -188,9 +188,9 @@ function initMap() {
     }
 }
 
-// =============================================================================
-// Contact Form Security & Validation
-// =============================================================================
+// // =============================================================================
+// // Contact Form Security & Validation
+// // =============================================================================
 function initContactForm() {
     const form = document.getElementById('contactForm');
     
@@ -265,9 +265,9 @@ function initContactForm() {
     }
 }
 
-// =============================================================================
-// Form Security Functions
-// =============================================================================
+// // =============================================================================
+// // Form Security Functions
+// // =============================================================================
 function sanitizeInput(input) {
     if (!input) return '';
     
@@ -454,9 +454,9 @@ function showFormMessage(message, type) {
     }
 }
 
-// =============================================================================
-// Percentage Chart Animation
-// =============================================================================
+// // =============================================================================
+// // Percentage Chart Animation
+// // =============================================================================
 function initPercentageChart() {
     const chartFill = document.querySelector('.percentage-fill');
     
@@ -497,9 +497,9 @@ function animateChart() {
     }, 30);
 }
 
-// =============================================================================
-// Parallax Effect
-// =============================================================================
+// // =============================================================================
+// // Parallax Effect
+// // =============================================================================
 function initParallaxEffect() {
     window.addEventListener('scroll', function() {
         if (isScrolling) return;
@@ -535,52 +535,11 @@ function updateParallax() {
     isScrolling = false;
 }
 
-// =============================================================================
-// Gallery Modal
-// =============================================================================
+// // =============================================================================
+// // Gallery Modal Functions
+// // =============================================================================
 function initGalleryModal() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            const title = this.querySelector('.gallery-overlay h3');
-            
-            if (img && title) {
-                openGalleryModal(img.src, title.textContent);
-            }
-        });
-    });
-}
-
-function openGalleryModal(imageSrc, title) {
-    const modal = document.createElement('div');
-    modal.className = 'gallery-modal';
-    modal.innerHTML = `
-        <div class="modal-overlay">
-            <div class="modal-content">
-                <button class="modal-close">&times;</button>
-                <img src="${imageSrc}" alt="${title}">
-                <h3>${title}</h3>
-            </div>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-    document.body.style.overflow = 'hidden';
-    
-    // Close modal
-    const closeBtn = modal.querySelector('.modal-close');
-    const overlay = modal.querySelector('.modal-overlay');
-    
-    closeBtn.addEventListener('click', closeGalleryModal);
-    overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) {
-            closeGalleryModal();
-        }
-    });
-    
-    // Close on escape key
+    // Cerrar modal con tecla Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeGalleryModal();
@@ -588,296 +547,183 @@ function openGalleryModal(imageSrc, title) {
     });
 }
 
+function openGalleryModal(imageSrc, title, description) {
+    const modal = document.getElementById('galleryModal');
+    const modalImage = document.getElementById('galleryModalImage');
+    const modalTitle = document.getElementById('galleryModalTitle');
+    const modalDescription = document.getElementById('galleryModalDescription');
+    
+    if (modal && modalImage && modalTitle && modalDescription) {
+        // Actualizar contenido del modal
+        modalImage.src = imageSrc;
+        modalImage.alt = title;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        
+        // Mostrar modal
+        modal.classList.add('active');
+        modal.style.display = 'flex';
+        
+        // Prevenir scroll del body
+        document.body.style.overflow = 'hidden';
+    }
+}
+
 function closeGalleryModal() {
-    const modal = document.querySelector('.gallery-modal');
+    const modal = document.getElementById('galleryModal');
+    
     if (modal) {
-        modal.remove();
+        modal.classList.remove('active');
+        modal.style.display = 'none';
+        
+        // Restaurar scroll del body
         document.body.style.overflow = 'auto';
     }
 }
 
 // =============================================================================
-// Site Plan Functionality
+// Site Plan Functions
 // =============================================================================
 function initSitePlan() {
+    const siteLots = document.querySelectorAll('.site-lot');
+    const siteInfoPanel = document.getElementById('siteInfoPanel');
+    const closeSitePanel = document.getElementById('closeSitePanel');
+    const planFilters = document.querySelectorAll('.plan-filter');
+    
+    // Site data
     const siteData = {
         1: {
-            number: "01",
-            size: "2.5 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "Sitio con excelente vista al valle y acceso directo al sendero principal.",
-            features: ["Vista panorámica", "Acceso vehicular", "Riachuelo cercano", "Bosque maduro"],
-            coordinates: "45°30'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-01/vista-panoramica.jpg",
-                    title: "Vista Panorámica del Valle",
-                    description: "Impresionante vista hacia el valle desde el punto más alto del sitio."
-                },
-                {
-                    src: "assets/images/sitios/sitio-01/acceso-vehicular.jpg",
-                    title: "Acceso Vehicular",
-                    description: "Camino de acceso directo para vehículos 4x4."
-                },
-                {
-                    src: "assets/images/sitios/sitio-01/riachuelo.jpg",
-                    title: "Riachuelo Cristalino",
-                    description: "Riachuelo que bordea el sitio con agua cristalina todo el año."
-                },
-                {
-                    src: "assets/images/sitios/sitio-01/bosque.jpg",
-                    title: "Bosque de Lengas Maduro",
-                    description: "Bosque nativo con árboles centenarios perfectamente conservados."
-                }
-            ]
+            title: 'Sitio 01 - Vista al Bosque',
+            size: '2.5 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'Sitio privilegiado con vista directa al bosque de lengas. Ideal para construcción de refugio con máxima privacidad.',
+            features: ['Vista panorámica al bosque', 'Acceso directo al sendero', 'Zona de construcción definida', 'Riachuelo cercano'],
+            images: ['assets/images/sitios/sitio-01/1.jpg', 'assets/images/sitios/sitio-01/2.jpg']
         },
         2: {
-            number: "02",
-            size: "3.2 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "Terreno amplio con diversidad de microclimas y abundante vegetación nativa.",
-            features: ["Mayor superficie", "Diversidad de flora", "Privacidad total", "Orientación norte"],
-            coordinates: "45°30'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-02/microclimas.jpg",
-                    title: "Diversidad de Microclimas",
-                    description: "Diferentes zonas con microclimas únicos que favorecen la biodiversidad."
-                },
-                {
-                    src: "assets/images/sitios/sitio-02/flora-nativa.jpg",
-                    title: "Flora Nativa",
-                    description: "Abundante vegetación nativa en perfecto estado de conservación."
-                },
-                {
-                    src: "assets/images/sitios/sitio-02/privacidad.jpg",
-                    title: "Privacidad Total",
-                    description: "Ubicación aislada que garantiza privacidad absoluta."
-                }
-            ]
+            title: 'Sitio 02 - Riachuelo Natural',
+            size: '3.2 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'Sitio único con riachuelo natural que atraviesa la propiedad. Perfecta armonía entre agua y bosque.',
+            features: ['Riachuelo propio', 'Bosque nativo preservado', 'Múltiples opciones de construcción', 'Fauna silvestre'],
+            images: ['assets/images/sitios/sitio-02/1.jpg', 'assets/images/sitios/sitio-02/2.jpg']
         },
         3: {
-            number: "03",
-            size: "2.8 Ha",
-            status: "reservado",
-            price: "Reservado",
-            description: "Sitio reservado con características excepcionales.",
-            features: ["Reservado por cliente", "Características premium", "Ubicación privilegiada"],
-            coordinates: "45°29'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-03/vista-especial.jpg",
-                    title: "Vista Especial",
-                    description: "Ubicación privilegiada con vista única del bosque."
-                }
-            ]
+            title: 'Sitio 03 - Reservado',
+            size: '2.8 Ha',
+            status: 'reservado',
+            price: 'Reservado',
+            description: 'Este sitio ha sido reservado por un cliente. Contáctanos para conocer otras opciones disponibles.',
+            features: ['Sitio reservado', 'Consultar disponibilidad', 'Opciones similares disponibles'],
+            images: []
         },
         4: {
-            number: "04",
-            size: "4.1 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "El sitio más grande disponible, ideal para desarrollo de proyecto familiar.",
-            features: ["Mayor superficie", "Múltiples zonas", "Potencial construcción", "Acceso secundario"],
-            coordinates: "45°29'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-04/superficie-grande.jpg",
-                    title: "Mayor Superficie",
-                    description: "El sitio más extenso con 4.1 hectáreas de pura naturaleza."
-                },
-                {
-                    src: "assets/images/sitios/sitio-04/zonas-multiples.jpg",
-                    title: "Múltiples Zonas",
-                    description: "Diferentes zonas perfectas para diversos usos y desarrollos."
-                },
-                {
-                    src: "assets/images/sitios/sitio-04/potencial.jpg",
-                    title: "Potencial de Desarrollo",
-                    description: "Amplias posibilidades para proyecto familiar sostenible."
-                }
-            ]
+            title: 'Sitio 04 - Bosque Denso',
+            size: '4.1 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'El sitio más grande disponible, con bosque denso de lengas centenarias. Máxima privacidad y naturaleza.',
+            features: ['Sitio más extenso', 'Bosque denso de lengas', 'Múltiples zonas de construcción', 'Máxima privacidad'],
+            images: ['assets/images/bosqueLengas/1.jpg', 'assets/images/bosqueLengas/2.jpg']
         },
         5: {
-            number: "05",
-            size: "2.9 Ha",
-            status: "vendido",
-            price: "Vendido",
-            description: "Sitio vendido a familia conservacionista.",
-            features: ["Vendido", "Proyecto de conservación", "Desarrollo sostenible"],
-            coordinates: "45°28'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-05/proyecto-conservacion.jpg",
-                    title: "Proyecto de Conservación",
-                    description: "Ejemplo de desarrollo sostenible en armonía con el entorno."
-                }
-            ]
+            title: 'Sitio 05 - Vendido',
+            size: '2.9 Ha',
+            status: 'vendido',
+            price: 'Vendido',
+            description: 'Este sitio ya ha sido vendido. Te invitamos a explorar nuestras otras opciones disponibles.',
+            features: ['Sitio vendido', 'Ver opciones disponibles'],
+            images: []
         },
         6: {
-            number: "06",
-            size: "3.5 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "Sitio con características únicas para observación de fauna.",
-            features: ["Observación fauna", "Tranquilidad total", "Bosque pristino", "Microclima especial"],
-            coordinates: "45°28'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-06/observacion-fauna.jpg",
-                    title: "Observación de Fauna",
-                    description: "Punto privilegiado para observar cóndores y huemules."
-                },
-                {
-                    src: "assets/images/sitios/sitio-06/tranquilidad.jpg",
-                    title: "Tranquilidad Total",
-                    description: "Rincón de paz absoluta alejado del ruido urbano."
-                },
-                {
-                    src: "assets/images/sitios/sitio-06/bosque-pristino.jpg",
-                    title: "Bosque Prístino",
-                    description: "Bosque virgen en estado natural sin intervención humana."
-                }
-            ]
+            title: 'Sitio 06 - Mirador Natural',
+            size: '3.5 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'Sitio con elevación natural que ofrece vistas panorámicas del valle y bosque circundante.',
+            features: ['Vista panorámica', 'Elevación natural', 'Bosque nativo', 'Zona de construcción con vista'],
+            images: ['assets/images/galeria/vistas.JPG', 'assets/images/galeria/bosque.JPEG']
         },
         7: {
-            number: "07",
-            size: "2.7 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "Perfecto para quienes buscan un refugio íntimo en la naturaleza.",
-            features: ["Intimidad", "Bosque denso", "Protección natural", "Acceso privado"],
-            coordinates: "45°27'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-07/refugio-intimo.jpg",
-                    title: "Refugio Íntimo",
-                    description: "Espacio perfecto para un refugio personal en la naturaleza."
-                },
-                {
-                    src: "assets/images/sitios/sitio-07/bosque-denso.jpg",
-                    title: "Bosque Denso",
-                    description: "Vegetación densa que proporciona privacidad natural."
-                }
-            ]
+            title: 'Sitio 07 - Entrada Principal',
+            size: '2.7 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'Sitio estratégicamente ubicado cerca de la entrada principal, con fácil acceso y servicios.',
+            features: ['Acceso principal', 'Servicios cercanos', 'Fácil construcción', 'Bosque preservado'],
+            images: ['assets/images/caminoAcceso.png', 'assets/images/galeria/imagenPrincipal.JPEG']
         },
         8: {
-            number: "08",
-            size: "3.8 Ha",
-            status: "reservado",
-            price: "Reservado",
-            description: "Sitio reservado con proceso de compra en curso.",
-            features: ["En proceso", "Características premium", "Ubicación estratégica"],
-            coordinates: "45°27'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-08/ubicacion-estrategica.jpg",
-                    title: "Ubicación Estratégica",
-                    description: "Posición privilegiada con acceso a múltiples senderos."
-                }
-            ]
+            title: 'Sitio 08 - Reservado',
+            size: '3.8 Ha',
+            status: 'reservado',
+            price: 'Reservado',
+            description: 'Sitio actualmente reservado. Contáctanos para conocer el estado actualizado y otras opciones.',
+            features: ['Sitio reservado', 'Consultar disponibilidad'],
+            images: []
         },
         9: {
-            number: "09",
-            size: "4.2 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "Sitio premium con la mayor superficie y características excepcionales.",
-            features: ["Superficie máxima", "Características únicas", "Ubicación premium", "Múltiples accesos"],
-            coordinates: "45°26'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-09/superficie-maxima.jpg",
-                    title: "Superficie Máxima",
-                    description: "El sitio más grande con 4.2 hectáreas de territorio virgen."
-                },
-                {
-                    src: "assets/images/sitios/sitio-09/caracteristicas-unicas.jpg",
-                    title: "Características Únicas",
-                    description: "Formaciones rocosas y cascadas naturales exclusivas."
-                },
-                {
-                    src: "assets/images/sitios/sitio-09/multiples-accesos.jpg",
-                    title: "Múltiples Accesos",
-                    description: "Diversos caminos de acceso para mayor comodidad."
-                }
-            ]
+            title: 'Sitio 09 - Valle Protegido',
+            size: '4.2 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'Sitio premium en valle protegido, rodeado completamente por bosque nativo. Máxima exclusividad.',
+            features: ['Valle protegido', 'Sitio premium', 'Bosque circundante', 'Máxima exclusividad'],
+            images: ['assets/images/sitios/sitio-09/1.jpg', 'assets/images/galeria/otoño.JPEG']
         },
         10: {
-            number: "10",
-            size: "3.1 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "Equilibrio perfecto entre superficie y funcionalidad.",
-            features: ["Superficie balanceada", "Funcionalidad", "Acceso directo", "Vista despejada"],
-            coordinates: "45°26'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-10/equilibrio.jpg",
-                    title: "Equilibrio Perfecto",
-                    description: "Tamaño ideal que combina amplitud con manejo sustentable."
-                },
-                {
-                    src: "assets/images/sitios/sitio-10/vista-despejada.jpg",
-                    title: "Vista Despejada",
-                    description: "Panorámica sin obstáculos hacia las montañas circundantes."
-                }
-            ]
+            title: 'Sitio 10 - Bosque y Pradera',
+            size: '3.1 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'Combinación perfecta entre bosque nativo y praderas naturales. Diversidad de ecosistemas.',
+            features: ['Bosque y pradera', 'Diversidad ecosistemas', 'Múltiples opciones construcción', 'Acceso directo'],
+            images: ['assets/images/galeria/arroyo.JPEG', 'assets/images/bosqueLengas/3.jpg']
         },
         11: {
-            number: "11",
-            size: "2.6 Ha",
-            status: "vendido",
-            price: "Vendido",
-            description: "Sitio vendido a inversionistas extranjeros.",
-            features: ["Vendido", "Inversión internacional", "Proyecto ecoturístico"],
-            coordinates: "45°25'S, 71°45'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-11/proyecto-ecoturistico.jpg",
-                    title: "Proyecto Ecoturístico",
-                    description: "Desarrollo de turismo sostenible respetando el entorno."
-                }
-            ]
+            title: 'Sitio 11 - Vendido',
+            size: '2.6 Ha',
+            status: 'vendido',
+            price: 'Vendido',
+            description: 'Sitio vendido exitosamente. Consulta nuestras opciones disponibles similares.',
+            features: ['Sitio vendido', 'Opciones similares disponibles'],
+            images: []
         },
         12: {
-            number: "12",
-            size: "3.9 Ha",
-            status: "disponible",
-            price: "Consultar",
-            description: "Último sitio de gran superficie disponible con características premium.",
-            features: ["Última oportunidad", "Superficie grande", "Características premium", "Ubicación final"],
-            coordinates: "45°25'S, 71°44'W",
-            gallery: [
-                {
-                    src: "assets/images/sitios/sitio-12/ultima-oportunidad.jpg",
-                    title: "Última Oportunidad",
-                    description: "El último sitio de gran superficie disponible en Lengaterra."
-                },
-                {
-                    src: "assets/images/sitios/sitio-12/superficie-grande.jpg",
-                    title: "Superficie Grande",
-                    description: "3.9 hectáreas de territorio virgen con múltiples posibilidades."
-                },
-                {
-                    src: "assets/images/sitios/sitio-12/caracteristicas-premium.jpg",
-                    title: "Características Premium",
-                    description: "Ubicación final con las mejores características del proyecto."
-                }
-            ]
+            title: 'Sitio 12 - Refugio del Bosque',
+            size: '3.9 Ha',
+            status: 'disponible',
+            price: 'Consultar',
+            description: 'Último sitio disponible en la zona más tranquila, completamente rodeado por el bosque de lengas.',
+            features: ['Zona más tranquila', 'Rodeado por bosque', 'Refugio natural', 'Última oportunidad'],
+            images: ['assets/images/bosqueLengas/4.jpg', 'assets/images/galeria/bosque.JPEG']
         }
     };
-
-    const siteLots = document.querySelectorAll('.site-lot');
-    const planFilters = document.querySelectorAll('.plan-filter');
-    const siteInfoPanel = document.getElementById('siteInfoPanel');
-    const closePanelBtn = document.getElementById('closeSitePanel');
-    const siteTitle = document.getElementById('siteTitle');
-    const siteDetails = document.getElementById('siteDetails');
-
-    // Filter functionality
+    
+    // Click en sitios
+    siteLots.forEach(lot => {
+        lot.addEventListener('click', function() {
+            const siteNumber = this.dataset.site;
+            const site = siteData[siteNumber];
+            
+            if (site) {
+                showSiteInfo(site);
+            }
+        });
+        
+        // Hover effects
+        lot.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        lot.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    // Filtros
     planFilters.forEach(filter => {
         filter.addEventListener('click', function() {
             const filterValue = this.dataset.filter;
@@ -888,502 +734,78 @@ function initSitePlan() {
             
             // Filter sites
             siteLots.forEach(lot => {
-                const lotStatus = lot.dataset.status;
+                const status = lot.dataset.status;
                 
-                if (filterValue === 'all' || lotStatus === filterValue) {
-                    lot.classList.remove('hidden');
+                if (filterValue === 'all' || status === filterValue) {
+                    lot.style.display = 'block';
+                    lot.style.opacity = '1';
                 } else {
-                    lot.classList.add('hidden');
+                    lot.style.opacity = '0.3';
                 }
             });
         });
     });
-
-    // Site lot click functionality
-    siteLots.forEach(lot => {
-        lot.addEventListener('click', function() {
-            const siteId = this.dataset.site;
-            const siteInfo = siteData[siteId];
-            
-            if (siteInfo) {
-                showSiteInfo(siteInfo);
-            }
-        });
-
-        // Add background images dynamically
-        const siteId = lot.dataset.site;
-        const imagePath = `assets/images/sitios/sitio-${siteId.padStart(2, '0')}.jpg`;
-        
-        // Check if image exists, otherwise use gradient
-        const img = new Image();
-        img.onload = function() {
-            lot.style.backgroundImage = `url(${imagePath})`;
-        };
-        img.src = imagePath;
-    });
-
-    // Close panel functionality
-    closePanelBtn.addEventListener('click', closeSitePanel);
     
-    // Close panel when clicking outside
-    document.addEventListener('click', function(e) {
-        if (siteInfoPanel.classList.contains('active') && 
-            !siteInfoPanel.contains(e.target) && 
-            !e.target.closest('.site-lot')) {
-            closeSitePanel();
-        }
-    });
-
-    function showSiteInfo(siteInfo) {
-        siteTitle.textContent = `Sitio ${siteInfo.number}`;
-        
-        const statusClass = siteInfo.status;
-        const statusText = siteInfo.status === 'disponible' ? 'Disponible' : 
-                          siteInfo.status === 'reservado' ? 'Reservado' : 'Vendido';
-        
-        siteDetails.innerHTML = `
-            <div class="site-detail-item">
-                <strong>Superficie:</strong> ${siteInfo.size}
-            </div>
-            <div class="site-detail-item">
-                <strong>Estado:</strong> 
-                <span class="status-badge ${statusClass}">${statusText}</span>
-            </div>
-            <div class="site-detail-item">
-                <strong>Precio:</strong> ${siteInfo.price}
-            </div>
-            <div class="site-detail-item">
-                <strong>Coordenadas:</strong> ${siteInfo.coordinates}
-            </div>
-            <div class="site-detail-item">
-                <strong>Descripción:</strong><br>
-                ${siteInfo.description}
-            </div>
-            <div class="site-detail-item">
-                <strong>Características:</strong>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                    ${siteInfo.features.map(feature => `<li>${feature}</li>`).join('')}
-                </ul>
-            </div>
-        `;
-        
-        // Load site gallery
-        const siteGallery = document.getElementById('siteGallery');
-        const siteGalleryGrid = document.getElementById('siteGalleryGrid');
-        
-        if (siteInfo.gallery && siteInfo.gallery.length > 0) {
-            siteGallery.style.display = 'block';
-            siteGalleryGrid.innerHTML = siteInfo.gallery.map((image, index) => `
-                <div class="site-gallery-item" data-index="${index}">
-                    <img src="${image.src}" alt="${image.title}" onerror="this.style.display='none'">
-                    <div class="gallery-icon">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-            `).join('');
-            
-            // Add click listeners to gallery items
-            siteGalleryGrid.querySelectorAll('.site-gallery-item').forEach((item, index) => {
-                item.addEventListener('click', function() {
-                    openImageModal(siteInfo.gallery, index);
-                });
-            });
-        } else {
-            siteGallery.style.display = 'none';
-        }
-        
-        // Update actions based on status
-        const siteActions = document.getElementById('siteActions');
-        if (siteInfo.status === 'disponible') {
-            siteActions.innerHTML = `
-                <button class="cta-button primary" onclick="scrollToSection('contacto')">
-                    Consultar Disponibilidad
-                </button>
-                <button class="cta-button secondary" onclick="scheduleVisit('${siteInfo.number}')">
-                    Agendar Visita
-                </button>
-            `;
-        } else if (siteInfo.status === 'reservado') {
-            siteActions.innerHTML = `
-                <button class="cta-button secondary" onclick="scrollToSection('contacto')">
-                    Lista de Espera
-                </button>
-            `;
-        } else {
-            siteActions.innerHTML = `
-                <p style="text-align: center; color: var(--text-light); font-style: italic;">
-                    Este sitio ya ha sido vendido
-                </p>
-            `;
-        }
-        
-        siteInfoPanel.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Force reflow for mobile
-        setTimeout(() => {
-            siteInfoPanel.style.right = '0';
-        }, 10);
-    }
-
-    function closeSitePanel() {
-        siteInfoPanel.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        
-        // Ensure proper cleanup for mobile
-        setTimeout(() => {
-            siteInfoPanel.style.right = '';
-        }, 300);
-    }
-    
-    // Mobile-specific improvements
-    function initMobileOptimizations() {
-        // Check if device is mobile
-        const isMobile = window.innerWidth <= 768;
-        
-        if (isMobile) {
-            // Improve touch feedback for site lots
-            siteLots.forEach(lot => {
-                lot.addEventListener('touchstart', function(e) {
-                    this.style.transform = 'scale(0.95)';
-                    this.style.transition = 'transform 0.1s ease';
-                });
-                
-                lot.addEventListener('touchend', function(e) {
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 100);
-                });
-            });
-            
-            // Improve panel opening on mobile
-            const originalShowSiteInfo = window.showSiteInfo;
-            window.showSiteInfo = function(siteInfo) {
-                // Ensure body scroll is properly handled
-                document.body.style.position = 'fixed';
-                document.body.style.top = `-${window.scrollY}px`;
-                document.body.style.width = '100%';
-                
-                // Call original function
-                originalShowSiteInfo.call(this, siteInfo);
-                
-                // Force panel to appear
-                setTimeout(() => {
-                    siteInfoPanel.style.transform = 'translateX(0)';
-                }, 50);
-            };
-            
-            // Improve panel closing on mobile
-            const originalCloseSitePanel = window.closeSitePanel;
-            window.closeSitePanel = function() {
-                // Restore body scroll
-                const scrollY = document.body.style.top;
-                document.body.style.position = '';
-                document.body.style.top = '';
-                document.body.style.width = '';
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
-                
-                // Call original function
-                originalCloseSitePanel.call(this);
-            };
-        }
-        
-        // Improve touch interactions for all devices
-        if ('ontouchstart' in window) {
-            // Improve scrolling on mobile for site map
-            const siteMapWrapper = document.querySelector('.site-map-wrapper');
-            if (siteMapWrapper) {
-                siteMapWrapper.style.webkitOverflowScrolling = 'touch';
-                siteMapWrapper.style.overflowScrolling = 'touch';
-            }
-            
-            // Prevent zoom on double tap for site lots
-            siteLots.forEach(lot => {
-                lot.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    // Trigger click after preventing default
-                    setTimeout(() => {
-                        this.click();
-                    }, 10);
-                });
-            });
-        }
-        
-        // Adjust panel height for mobile keyboards and orientation changes
-        function adjustPanelForMobile() {
-            if (window.innerWidth <= 768) {
-                const panel = document.getElementById('siteInfoPanel');
-                if (panel && panel.classList.contains('active')) {
-                    const viewportHeight = window.innerHeight;
-                    panel.style.height = `${viewportHeight}px`;
-                    panel.style.top = '0';
-                }
-            }
-        }
-        
-        // Listen for resize and orientation changes
-        window.addEventListener('resize', debounce(adjustPanelForMobile, 250));
-        window.addEventListener('orientationchange', function() {
-            setTimeout(adjustPanelForMobile, 500);
+    // Cerrar panel
+    if (closeSitePanel) {
+        closeSitePanel.addEventListener('click', function() {
+            siteInfoPanel.classList.remove('active');
         });
     }
     
-    // Initialize mobile optimizations
-    initMobileOptimizations();
-}
-
-function scheduleVisit(siteNumber) {
-    const message = `Hola, me interesa agendar una visita al Sitio ${siteNumber} en Lengaterra. ¿Podrían ayudarme con la disponibilidad?`;
-    const whatsappUrl = `https://wa.me/56973948891?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-}
-
-// =============================================================================
-// Utility Functions
-// =============================================================================
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// =============================================================================
-// Performance Optimizations
-// =============================================================================
-window.addEventListener('scroll', debounce(function() {
-    updateParallax();
-}, 10));
-
-// =============================================================================
-// Social Media Sharing
-// =============================================================================
-function shareOnFacebook() {
-    const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent('Lengaterra - Refugio Natural en la Patagonia');
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-}
-
-function shareOnLinkedIn() {
-    const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent('Lengaterra - Refugio Natural en la Patagonia');
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-}
-
-function shareOnTwitter() {
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent('Descubre Lengaterra: Refugio Natural en la Patagonia Chilena');
-    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-}
-
-// =============================================================================
-// Loading Animation
-// =============================================================================
-window.addEventListener('load', function() {
-    const loader = document.querySelector('.loader');
-    if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
-    }
-});
-
-// =============================================================================
-// Error Handling
-// =============================================================================
-window.addEventListener('error', function(e) {
-    console.error('Error:', e.error);
-    // You could send this to a logging service
-});
-
-// =============================================================================
-// Gallery Modal Styles (added dynamically)
-// =============================================================================
-const modalStyles = `
-    .gallery-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10000;
-        animation: fadeIn 0.3s ease-out;
-    }
-    
-    .modal-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-    }
-    
-    .modal-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-        text-align: center;
-    }
-    
-    .modal-content img {
-        max-width: 100%;
-        max-height: 80vh;
-        object-fit: contain;
-        border-radius: 8px;
-    }
-    
-    .modal-content h3 {
-        color: white;
-        margin-top: 1rem;
-        font-size: 1.5rem;
-    }
-    
-    .modal-close {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        padding: 0.5rem;
-        border-radius: 50%;
-        transition: background 0.3s ease;
-    }
-    
-    .modal-close:hover {
-        background: rgba(255, 255, 255, 0.2);
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-`;
-
-// Add modal styles to document
-const styleSheet = document.createElement('style');
-styleSheet.textContent = modalStyles;
-document.head.appendChild(styleSheet);
-
-// =============================================================================
-// Site Gallery Modal Functionality
-// =============================================================================
-let currentImageIndex = 0;
-let currentGallery = [];
-
-function openImageModal(gallery, index) {
-    currentGallery = gallery;
-    currentImageIndex = index;
-    
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    
-    const currentImage = gallery[index];
-    modalImage.src = currentImage.src;
-    modalImage.alt = currentImage.title;
-    modalTitle.textContent = currentImage.title;
-    modalDescription.textContent = currentImage.description;
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    
-    // Setup navigation
-    updateNavigationButtons();
-    
-    // Setup event listeners
-    setupModalEventListeners();
-}
-
-function closeImageModal() {
-    const modal = document.getElementById('imageModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-function showNextImage() {
-    if (currentImageIndex < currentGallery.length - 1) {
-        currentImageIndex++;
-        updateModalImage();
-    }
-}
-
-function showPreviousImage() {
-    if (currentImageIndex > 0) {
-        currentImageIndex--;
-        updateModalImage();
-    }
-}
-
-function updateModalImage() {
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    
-    const currentImage = currentGallery[currentImageIndex];
-    modalImage.src = currentImage.src;
-    modalImage.alt = currentImage.title;
-    modalTitle.textContent = currentImage.title;
-    modalDescription.textContent = currentImage.description;
-    
-    updateNavigationButtons();
-}
-
-function updateNavigationButtons() {
-    const prevBtn = document.getElementById('modalPrev');
-    const nextBtn = document.getElementById('modalNext');
-    
-    prevBtn.style.display = currentImageIndex > 0 ? 'flex' : 'none';
-    nextBtn.style.display = currentImageIndex < currentGallery.length - 1 ? 'flex' : 'none';
-}
-
-function setupModalEventListeners() {
-    const modal = document.getElementById('imageModal');
-    const closeBtn = document.querySelector('.close-modal');
-    const prevBtn = document.getElementById('modalPrev');
-    const nextBtn = document.getElementById('modalNext');
-    
-    // Close modal events
-    closeBtn.addEventListener('click', closeImageModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeImageModal();
-        }
-    });
-    
-    // Navigation events
-    prevBtn.addEventListener('click', showPreviousImage);
-    nextBtn.addEventListener('click', showNextImage);
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (!modal.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') {
-            closeImageModal();
-        } else if (e.key === 'ArrowLeft') {
-            showPreviousImage();
-        } else if (e.key === 'ArrowRight') {
-            showNextImage();
+    // Cerrar panel al hacer clic fuera
+    siteInfoPanel.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
         }
     });
 }
 
-// Initialize modal event listeners on page load
-document.addEventListener('DOMContentLoaded', function() {
-    setupModalEventListeners();
-});
+function showSiteInfo(site) {
+    const siteInfoPanel = document.getElementById('siteInfoPanel');
+    const siteTitle = document.getElementById('siteTitle');
+    const siteDetails = document.getElementById('siteDetails');
+    const siteGalleryGrid = document.getElementById('siteGalleryGrid');
+    
+    // Update title
+    siteTitle.textContent = site.title;
+    
+    // Update details
+    siteDetails.innerHTML = `
+        <div class="site-detail-grid">
+            <div class="detail-item">
+                <span class="detail-label">Tamaño:</span>
+                <span class="detail-value">${site.size}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Estado:</span>
+                <span class="detail-value status-${site.status}">${site.status.charAt(0).toUpperCase() + site.status.slice(1)}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Precio:</span>
+                <span class="detail-value">${site.price}</span>
+            </div>
+        </div>
+        <p class="site-description">${site.description}</p>
+        <div class="site-features">
+            <h4>Características:</h4>
+            <ul>
+                ${site.features.map(feature => `<li>${feature}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+    
+    // Update gallery
+    if (site.images && site.images.length > 0) {
+        siteGalleryGrid.innerHTML = site.images.map(image => `
+            <div class="site-gallery-item" onclick="openGalleryModal('${image}', '${site.title}', '${site.description}')">
+                <img src="${image}" alt="${site.title}" loading="lazy">
+            </div>
+        `).join('');
+    } else {
+        siteGalleryGrid.innerHTML = '<p>No hay imágenes disponibles para este sitio.</p>';
+    }
+    
+    // Show panel
+    siteInfoPanel.classList.add('active');
+}

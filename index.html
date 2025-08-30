@@ -61,7 +61,7 @@
     <section id="inicio" class="hero">
         <div class="hero-video">
             <video autoplay muted loop>
-                <source src="assets/videos/bosque-lenga-hero.mp4" type="video/mp4">
+                <source src="assets/videos/videoFondoLengaterra.mp4" type="video/mp4">
                 <!-- Fallback image -->
                 <img src="assets/images/hero-fallback.jpg" alt="Bosque de Lengas">
             </video>
@@ -177,16 +177,16 @@
                 <div class="forest-gallery">
                     <div class="gallery-grid">
                         <div class="gallery-item">
-                            <img src="assets/images/lengas-1.jpg" alt="Bosque de Lengas en otoño">
+                            <img src="assets/images/bosqueLengas/1.jpg?v=3" alt="Bosque de Lengas en otoño" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/lengas-2.jpg" alt="Sendero entre lengas">
+                            <img src="assets/images/bosqueLengas/2.jpg?v=3" alt="Sendero entre lengas" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/lengas-3.jpg" alt="Riachuelo en el bosque">
+                            <img src="assets/images/bosqueLengas/3.jpg?v=3" alt="Riachuelo en el bosque" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/lengas-4.jpg" alt="Vista panorámica del bosque">
+                            <img src="assets/images/bosqueLengas/4.jpg?v=3" alt="Vista panorámica del bosque" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -504,45 +504,73 @@
         <div class="container">
             <h2 class="section-title">Galería</h2>
             <div class="gallery-container">
-                <div class="gallery-item large">
-                    <img src="assets/images/gallery-1.jpg" alt="Sendero principal del bosque">
+                <!-- Imagen Principal (Galería/1.jpg) - LARGE -->
+                <div class="gallery-item large" onclick="openGalleryModal('assets/images/galeria/1.jpg', 'Imagen Principal', 'Vista principal del refugio natural Lengaterra.')">
+                    <img src="assets/images/galeria/imagenPrincipal.JPEG" alt="Imagen Principal" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Senderos Naturales</h3>
+                        <h3>Imagen Principal</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery-2.jpg" alt="Riachuelo cristalino">
+                
+                <!-- Bosque 1 -->
+                <div class="gallery-item small" onclick="openGalleryModal('assets/images/galeria/arroyo.JPEG', 'Bosque 1', 'Bosque de lengas en otoño con colores espectaculares.')">
+                    <img src="assets/images/galeria/arroyo.JPEG" alt="Arroyo" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Riachuelos Cristalinos</h3>
+                        <h3>Arroyo</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery-3.jpg" alt="Vista panorámica">
+                
+                <!-- Bosque 2 -->
+                <div class="gallery-item small" onclick="openGalleryModal('assets/images/galeria/bosque.JPEG', 'Bosque 2', 'Senderos naturales entre las lengas milenarias.')">
+                    <img src="assets/images/galeria/bosque.JPEG" alt="Bosque" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Vistas Panorámicas</h3>
+                        <h3>Camino y bosque lenga</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery-4.jpg" alt="Fauna nativa">
+                
+                <!-- Bosque 3 -->
+                <div class="gallery-item small" onclick="openGalleryModal('assets/images/galeria/otoño.JPEG', 'Bosque 3', 'Otoño en el bosque de lengas con follaje colorido.')">
+                    <img src="assets/images/galeria/otoño.JPEG" alt="Otoño" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Fauna Nativa</h3>
+                        <h3>Otoño</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery-5.jpg" alt="Bosque en otoño">
+                
+                <!-- Bosque 4 -->
+                <div class="gallery-item small" onclick="openGalleryModal('assets/images/bosqueLengas/4.jpg', 'Bosque 4', 'Vista panorámica del ecosistema patagónico.')">
+                    <img src="assets/images/bosqueLengas/4.jpg" alt="Bosque 4" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Colores de Otoño</h3>
+                        <h3>Bosque 4</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery-6.jpg" alt="Refugio natural">
+                
+                <!-- Camino de Acceso -->
+                <div class="gallery-item wide" onclick="openGalleryModal('assets/images/galeria/vistas.JPG', 'Vistas', 'Vistas panorámicas desde el camino de acceso al refugio.')">
+                    <img src="assets/images/galeria/vistas.JPG" alt="Vistas" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Refugio Natural</h3>
+                        <h3>Vistas</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+        <div class="modal-backdrop" onclick="closeGalleryModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeGalleryModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image-container">
+                <img id="galleryModalImage" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <h3 id="galleryModalTitle"></h3>
+                <p id="galleryModalDescription"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contacto" class="contact">
