@@ -14,9 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initSmoothScroll();
     initPercentageChart();
-    initParallaxEffect();
+    // initParallaxEffect();
     initGalleryModal();
     initSitePlan();
+    initGlobalModalHandlers();
 });
 
 // =============================================================================
@@ -160,14 +161,14 @@ function initMap() {
         
         // Custom icons
         const forestIcon = L.icon({
-            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjMmM0YzNiIi8+Cjwvc3ZnPg==',
+            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA9TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjMmM0YzNiIi8+Cjwvc3ZnPg==',
             iconSize: [30, 30],
             iconAnchor: [15, 15],
             popupAnchor: [0, -15]
         });
         
         const cityIcon = L.icon({
-            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPg==',
+            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPg==',
             iconSize: [25, 25],
             iconAnchor: [12, 12],
             popupAnchor: [0, -12]
@@ -501,98 +502,91 @@ function animateChart() {
 // Parallax Effect
 // =============================================================================
 function initParallaxEffect() {
-    window.addEventListener('scroll', function() {
-        if (isScrolling) return;
+//     window.addEventListener('scroll', function() {
+//         if (isScrolling) return;
         
-        isScrolling = true;
-        requestAnimationFrame(updateParallax);
-    });
-}
+//         isScrolling = true;
+//         requestAnimationFrame(updateParallax);
+//     });
+// }
 
-function updateParallax() {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
+// function updateParallax() {
+//     const scrolled = window.pageYOffset;
+//     const hero = document.querySelector('.hero');
     
-    if (hero) {
-        const heroVideo = hero.querySelector('.hero-video');
-        if (heroVideo) {
-            heroVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    }
+//     if (hero) {
+//         const heroVideo = hero.querySelector('.hero-video');
+//         if (heroVideo) {
+//             heroVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
+//         }
+//     }
     
-    // Parallax for other sections
-    const parallaxElements = document.querySelectorAll('.gallery-item img');
-    parallaxElements.forEach((element, index) => {
-        const rect = element.getBoundingClientRect();
-        const speed = 0.1 + (index * 0.05);
+//     // Parallax for other sections
+//     const parallaxElements = document.querySelectorAll('.gallery-item img');
+//     parallaxElements.forEach((element, index) => {
+//         const rect = element.getBoundingClientRect();
+//         const speed = 0.1 + (index * 0.05);
         
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            const yPos = -(scrolled * speed);
-            element.style.transform = `translateY(${yPos}px)`;
-        }
-    });
+//         if (rect.top < window.innerHeight && rect.bottom > 0) {
+//             const yPos = -(scrolled * speed);
+//             element.style.transform = `translateY(${yPos}px)`;
+//         }
+//     });
     
-    isScrolling = false;
+//     isScrolling = false;
 }
 
 // =============================================================================
 // Gallery Modal
 // =============================================================================
 function initGalleryModal() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            const title = this.querySelector('.gallery-overlay h3');
-            
-            if (img && title) {
-                openGalleryModal(img.src, title.textContent);
-            }
-        });
-    });
+    // No need to add event listeners here, they're handled by onclick in HTML
 }
 
-function openGalleryModal(imageSrc, title) {
-    const modal = document.createElement('div');
-    modal.className = 'gallery-modal';
-    modal.innerHTML = `
-        <div class="modal-overlay">
-            <div class="modal-content">
-                <button class="modal-close">&times;</button>
-                <img src="${imageSrc}" alt="${title}">
-                <h3>${title}</h3>
-            </div>
-        </div>
-    `;
+// Gallery Modal Functions
+function openGalleryModal(imageName, imageTitle) {
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('galleryModalImage');
+    const modalTitle = document.getElementById('galleryModalTitle');
     
-    document.body.appendChild(modal);
-    document.body.style.overflow = 'hidden';
-    
-    // Close modal
-    const closeBtn = modal.querySelector('.modal-close');
-    const overlay = modal.querySelector('.modal-overlay');
-    
-    closeBtn.addEventListener('click', closeGalleryModal);
-    overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) {
-            closeGalleryModal();
-        }
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeGalleryModal();
-        }
-    });
+    if (modal && modalImg && modalTitle) {
+        modalImg.src = imageName;
+        modalImg.alt = imageTitle;
+        modalTitle.textContent = imageTitle;
+        
+        // Prevent scroll del fondo
+        const body = document.body;
+        const scrollY = window.scrollY;
+        body.dataset.scrollY = scrollY;
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.width = '100%';
+        
+        modal.classList.add('active');
+        
+        // Agregar listener para cerrar al hacer click fuera de la imagen
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                closeGalleryModal();
+            }
+        };
+    }
 }
 
 function closeGalleryModal() {
-    const modal = document.querySelector('.gallery-modal');
+    const modal = document.getElementById('galleryModal');
     if (modal) {
-        modal.remove();
-        document.body.style.overflow = 'auto';
+        modal.classList.remove('active');
+        modal.onclick = null;
+        
+        // Restore body scroll
+        const body = document.body;
+        const scrollY = body.dataset.scrollY || '0';
+        body.style.position = '';
+        body.style.top = '';
+        body.style.width = '';
+        window.scrollTo(0, parseInt(scrollY));
+        delete body.dataset.scrollY;
     }
 }
 
@@ -935,6 +929,9 @@ function initSitePlan() {
     });
 
     function showSiteInfo(siteInfo) {
+        // Store current scroll position using unified method
+        fixScroll();
+        
         siteTitle.textContent = `Sitio ${siteInfo.number}`;
         
         const statusClass = siteInfo.status;
@@ -1018,22 +1015,13 @@ function initSitePlan() {
         }
         
         siteInfoPanel.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Force reflow for mobile
-        setTimeout(() => {
-            siteInfoPanel.style.right = '0';
-        }, 10);
     }
 
     function closeSitePanel() {
         siteInfoPanel.classList.remove('active');
-        document.body.style.overflow = 'auto';
         
-        // Ensure proper cleanup for mobile
-        setTimeout(() => {
-            siteInfoPanel.style.right = '';
-        }, 300);
+        // Restore body scroll using unified method
+        restoreScroll();
     }
     
     // Mobile-specific improvements
@@ -1139,6 +1127,70 @@ function scheduleVisit(siteNumber) {
 }
 
 // =============================================================================
+// Global Modal Handlers
+// =============================================================================
+function initGlobalModalHandlers() {
+    // Cerrar modales con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const galleryModal = document.getElementById('galleryModal');
+            const sitePlanModal = document.getElementById('sitePlanModal');
+            const imageModal = document.getElementById('imageModal');
+            
+            if (galleryModal && galleryModal.classList.contains('active')) {
+                closeGalleryModal();
+            } else if (sitePlanModal && sitePlanModal.style.display === 'flex') {
+                closeSitePanel();
+            } else if (imageModal && imageModal.classList.contains('active')) {
+                closeImageModal();
+            }
+        }
+    });
+
+    // Prevenir scroll en el fondo cuando hay modales abiertos
+    document.addEventListener('wheel', function(e) {
+        const body = document.body;
+        if (body.style.position === 'fixed') {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Prevenir scroll táctil en dispositivos móviles
+    document.addEventListener('touchmove', function(e) {
+        const body = document.body;
+        if (body.style.position === 'fixed') {
+            e.preventDefault();
+        }
+    }, { passive: false });
+}
+
+// Función auxiliar para restaurar scroll con verificación
+function restoreScroll() {
+    const body = document.body;
+    const scrollY = body.dataset.scrollY;
+    
+    body.style.position = '';
+    body.style.top = '';
+    body.style.width = '';
+    
+    if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY));
+        delete body.dataset.scrollY;
+    }
+}
+
+// Función auxiliar para fijar scroll
+function fixScroll() {
+    const body = document.body;
+    const scrollY = window.scrollY;
+    
+    body.dataset.scrollY = scrollY;
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.width = '100%';
+}
+
+// =============================================================================
 // Utility Functions
 // =============================================================================
 function debounce(func, wait) {
@@ -1156,9 +1208,9 @@ function debounce(func, wait) {
 // =============================================================================
 // Performance Optimizations
 // =============================================================================
-window.addEventListener('scroll', debounce(function() {
-    updateParallax();
-}, 10));
+// window.addEventListener('scroll', debounce(function() {
+//     updateParallax();
+// }, 10));
 
 // =============================================================================
 // Social Media Sharing
@@ -1288,6 +1340,9 @@ function openImageModal(gallery, index) {
     currentGallery = gallery;
     currentImageIndex = index;
     
+    // Store current scroll position using unified method
+    fixScroll();
+    
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
@@ -1297,22 +1352,22 @@ function openImageModal(gallery, index) {
     modalImage.src = currentImage.src;
     modalImage.alt = currentImage.title;
     modalTitle.textContent = currentImage.title;
-    modalDescription.textContent = currentImage.description;
+    if (modalDescription) {
+        modalDescription.textContent = currentImage.description || '';
+    }
     
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
     
     // Setup navigation
     updateNavigationButtons();
-    
-    // Setup event listeners
-    setupModalEventListeners();
 }
 
 function closeImageModal() {
     const modal = document.getElementById('imageModal');
     modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    
+    // Restore body scroll using unified method
+    restoreScroll();
 }
 
 function showNextImage() {
