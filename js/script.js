@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGalleryModal();
     initSitePlan();
     initGlobalModalHandlers();
+    initScrollDetection();
     initVideoProtection();
 });
 
@@ -891,7 +892,20 @@ function initSitePlan() {
 
     // Site lot click functionality
     siteLots.forEach(lot => {
-        lot.addEventListener('click', function() {
+        lot.addEventListener('click', function(e) {
+            // Only prevent modal opening if actively scrolling (more lenient)
+            if (window.isCurrentlyScrolling && window.isCurrentlyScrolling()) {
+                // Check if the scroll just happened - allow clicks after a brief moment
+                setTimeout(() => {
+                    if (!window.isCurrentlyScrolling()) {
+                        this.click(); // Retry the click
+                    }
+                }, 100);
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+            
             const siteId = this.dataset.site;
             const siteInfo = siteData[siteId];
             
@@ -1055,18 +1069,74 @@ function initSitePlan() {
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
-            // Improve touch feedback for site lots
+            // Improve touch feedback for site lots with scroll detection
             siteLots.forEach(lot => {
+                let touchStartY = 0;
+                let touchStartX = 0;
+                let touchStartTime = 0;
+                let isLotScrolling = false;
+                let touchMoved = false;
+                
                 lot.addEventListener('touchstart', function(e) {
+                    // Don't interfere with scrolling in site-map-wrapper
+                    const siteMapWrapper = e.target.closest('.site-map-wrapper');
+                    if (siteMapWrapper && siteMapWrapper.scrollHeight > siteMapWrapper.clientHeight) {
+                        return; // Allow normal scrolling
+                    }
+                    
+                    touchStartY = e.touches[0].clientY;
+                    touchStartX = e.touches[0].clientX;
+                    touchStartTime = Date.now();
+                    isLotScrolling = false;
+                    touchMoved = false;
+                    
+                    // Visual feedback only for direct touches on lot
                     this.style.transform = 'scale(0.95)';
                     this.style.transition = 'transform 0.1s ease';
-                });
+                }, { passive: true });
+                
+                lot.addEventListener('touchmove', function(e) {
+                    if (!touchStartY) return;
+                    
+                    const touchY = e.touches[0].clientY;
+                    const touchX = e.touches[0].clientX;
+                    const deltaY = Math.abs(touchY - touchStartY);
+                    const deltaX = Math.abs(touchX - touchStartX);
+                    
+                    // More lenient movement detection
+                    if (deltaY > 15 || deltaX > 15) {
+                        touchMoved = true;
+                        
+                        // If vertical movement is significant and greater than horizontal, it's a scroll
+                        if (deltaY > 25 && deltaY > deltaX * 2) {
+                            isLotScrolling = true;
+                            // Reset visual feedback during scroll
+                            this.style.transform = 'scale(1)';
+                        }
+                    }
+                }, { passive: true });
                 
                 lot.addEventListener('touchend', function(e) {
+                    const touchDuration = Date.now() - touchStartTime;
+                    
+                    // Reset visual feedback
                     setTimeout(() => {
                         this.style.transform = 'scale(1)';
                     }, 100);
-                });
+                    
+                    // Only prevent modal opening if clearly scrolling with significant movement
+                    if (isLotScrolling && touchDuration > 200) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return false;
+                    }
+                    
+                    // For short touches with minimal movement, allow the tap
+                    if (touchDuration < 200 && !isLotScrolling) {
+                        // This is likely a tap, allow it to proceed
+                        return;
+                    }
+                }, { passive: false });
             });
             
             // Improve panel opening on mobile
@@ -1122,16 +1192,7 @@ function initSitePlan() {
                 siteMapWrapper.style.overflowScrolling = 'touch';
             }
             
-            // Prevent zoom on double tap for site lots
-            siteLots.forEach(lot => {
-                lot.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    // Trigger click after preventing default
-                    setTimeout(() => {
-                        this.click();
-                    }, 10);
-                });
-            });
+
         }
         
         // Adjust panel height for mobile keyboards and orientation changes
@@ -1184,19 +1245,27 @@ function initGlobalModalHandlers() {
         }
     });
 
-    // Prevenir scroll en el fondo cuando hay modales abiertos
+    // Prevenir scroll en el fondo cuando hay modales abiertos - pero permitir scroll en modales
     document.addEventListener('wheel', function(e) {
         const body = document.body;
         if (body.style.position === 'fixed') {
-            e.preventDefault();
+            // Allow scrolling within modal content
+            const modalContent = e.target.closest('.site-info-panel, .modal-content, .contact-form');
+            if (!modalContent) {
+                e.preventDefault();
+            }
         }
     }, { passive: false });
 
-    // Prevenir scroll táctil en dispositivos móviles
+    // Prevenir scroll táctil en dispositivos móviles - pero permitir scroll en modales
     document.addEventListener('touchmove', function(e) {
         const body = document.body;
         if (body.style.position === 'fixed') {
-            e.preventDefault();
+            // Allow scrolling within modal content
+            const modalContent = e.target.closest('.site-info-panel, .modal-content, .contact-form');
+            if (!modalContent) {
+                e.preventDefault();
+            }
         }
     }, { passive: false });
     
@@ -1493,6 +1562,47 @@ function setupModalEventListeners() {
 document.addEventListener('DOMContentLoaded', function() {
     setupModalEventListeners();
 });
+
+// =============================================================================
+// Scroll Detection Functions
+// =============================================================================
+function initScrollDetection() {
+    // Global scroll state management
+    let isActivelyScrolling = false;
+    let scrollTimeout;
+    
+    // Track scroll state only for preventing accidental taps during fast scroll
+    function handleScrollStart() {
+        isActivelyScrolling = true;
+        clearTimeout(scrollTimeout);
+        document.body.classList.add('is-scrolling');
+    }
+    
+    function handleScrollEnd() {
+        scrollTimeout = setTimeout(() => {
+            isActivelyScrolling = false;
+            document.body.classList.remove('is-scrolling');
+        }, 100); // Shorter timeout to allow normal interaction
+    }
+    
+    // Listen for scroll events on site map wrapper only
+    const siteMapWrapper = document.querySelector('.site-map-wrapper');
+    if (siteMapWrapper) {
+        siteMapWrapper.addEventListener('scroll', handleScrollStart, { passive: true });
+        siteMapWrapper.addEventListener('scroll', handleScrollEnd, { passive: true });
+        
+        // Handle momentum scrolling on iOS - shorter timeout
+        siteMapWrapper.addEventListener('touchend', function() {
+            scrollTimeout = setTimeout(() => {
+                isActivelyScrolling = false;
+                document.body.classList.remove('is-scrolling');
+            }, 150); // Shorter timeout for better responsiveness
+        }, { passive: true });
+    }
+    
+    // Make scroll state available globally (less restrictive)
+    window.isCurrentlyScrolling = () => isActivelyScrolling;
+}
 
 // =============================================================================
 // Video Protection Functions

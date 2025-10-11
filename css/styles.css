@@ -263,6 +263,16 @@ body.modal-open .hero-video video {
     touch-action: none;
 }
 
+/* Scroll state indicators - less restrictive */
+body.is-scrolling .site-lot {
+    /* Only disable hover effects during scroll, not all pointer events */
+    transition: none !important;
+}
+
+body.is-scrolling .site-lot:hover {
+    transform: none !important;
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -1243,6 +1253,9 @@ body.modal-open .hero-video video {
         display: flex;
         justify-content: center;
         max-height: 80vh;
+        /* Ensure scrolling is always enabled */
+        overscroll-behavior: contain;
+        scroll-behavior: smooth;
     }
     
     .site-map {
@@ -1364,8 +1377,12 @@ body.modal-open .hero-video video {
     .site-info-content {
         height: 100%;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         padding: 2rem 1.5rem;
         padding-top: 3rem;
+        /* Ensure scrolling works in modals */
+        overscroll-behavior: contain;
+        scroll-behavior: smooth;
     }
     
     .close-panel {
