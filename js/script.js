@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGalleryModal();
     initSitePlan();
     initGlobalModalHandlers();
+    initVideoProtection();
 });
 
 // =============================================================================
@@ -912,13 +913,19 @@ function initSitePlan() {
     });
 
     // Close panel functionality
-    closePanelBtn.addEventListener('click', closeSitePanel);
+    closePanelBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeSitePanel();
+    });
     
     // Close panel when clicking outside
     document.addEventListener('click', function(e) {
         if (siteInfoPanel.classList.contains('active') && 
             !siteInfoPanel.contains(e.target) && 
             !e.target.closest('.site-lot')) {
+            e.preventDefault();
+            e.stopPropagation();
             closeSitePanel();
         }
     });
@@ -927,6 +934,8 @@ function initSitePlan() {
         // Solo aplicar fixScroll si el panel no está ya abierto
         if (!siteInfoPanel.classList.contains('active')) {
             fixScroll();
+            // Add class to prevent video interaction
+            document.body.classList.add('modal-open');
         }
         
         siteTitle.textContent = `Sitio ${siteInfo.number}`;
@@ -1017,6 +1026,25 @@ function initSitePlan() {
     function closeSitePanel() {
         siteInfoPanel.classList.remove('active');
         
+        // Remove modal class from body
+        document.body.classList.remove('modal-open');
+        
+        // Prevent video activation on mobile after modal close
+        if (window.innerWidth <= 768) {
+            const heroVideo = document.querySelector('.hero-video video');
+            if (heroVideo) {
+                // Temporarily disable video interaction
+                heroVideo.style.pointerEvents = 'none';
+                heroVideo.style.touchAction = 'none';
+                
+                // Re-enable after a delay
+                setTimeout(() => {
+                    heroVideo.style.pointerEvents = '';
+                    heroVideo.style.touchAction = '';
+                }, 500);
+            }
+        }
+        
         // Restore body scroll using unified method
         restoreScroll();
     }
@@ -1067,6 +1095,18 @@ function initSitePlan() {
                 document.body.style.top = '';
                 document.body.style.width = '';
                 window.scrollTo(0, parseInt(scrollY || '0') * -1);
+                
+                // Additional prevention for video activation on mobile
+                const heroVideo = document.querySelector('.hero-video video');
+                if (heroVideo) {
+                    heroVideo.style.pointerEvents = 'none';
+                    heroVideo.style.touchAction = 'none';
+                    
+                    setTimeout(() => {
+                        heroVideo.style.pointerEvents = '';
+                        heroVideo.style.touchAction = '';
+                    }, 800);
+                }
                 
                 // Call original function
                 originalCloseSitePanel.call(this);
@@ -1159,6 +1199,17 @@ function initGlobalModalHandlers() {
             e.preventDefault();
         }
     }, { passive: false });
+    
+    // Prevenir activación accidental del video durante cierre de modales
+    document.addEventListener('touchend', function(e) {
+        if (document.body.classList.contains('modal-open')) {
+            const heroVideo = document.querySelector('.hero-video video');
+            if (heroVideo && (e.target === heroVideo || heroVideo.contains(e.target))) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+    }, { passive: false, capture: true });
 }
 
 // Función auxiliar para restaurar scroll con verificación
@@ -1442,3 +1493,58 @@ function setupModalEventListeners() {
 document.addEventListener('DOMContentLoaded', function() {
     setupModalEventListeners();
 });
+
+// =============================================================================
+// Video Protection Functions
+// =============================================================================
+function initVideoProtection() {
+    const heroVideo = document.querySelector('.hero-video video');
+    
+    if (!heroVideo) return;
+    
+    // Prevent fullscreen activation on mobile devices
+    if (window.innerWidth <= 768) {
+        // Disable double-tap to fullscreen on iOS
+        heroVideo.addEventListener('touchstart', function(e) {
+            if (document.body.classList.contains('modal-open')) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, { passive: false });
+        
+        heroVideo.addEventListener('touchend', function(e) {
+            if (document.body.classList.contains('modal-open')) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, { passive: false });
+        
+        // Prevent click events when modals are closing
+        heroVideo.addEventListener('click', function(e) {
+            if (document.body.classList.contains('modal-open') || 
+                heroVideo.style.pointerEvents === 'none') {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, { capture: true });
+        
+        // Prevent context menu which can trigger fullscreen on some devices
+        heroVideo.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // Additional protection for webkitEnterFullscreen method
+        const originalEnterFullscreen = heroVideo.webkitEnterFullscreen;
+        if (originalEnterFullscreen) {
+            heroVideo.webkitEnterFullscreen = function() {
+                if (!document.body.classList.contains('modal-open') && 
+                    heroVideo.style.pointerEvents !== 'none') {
+                    return originalEnterFullscreen.call(this);
+                }
+            };
+        }
+    }
+}

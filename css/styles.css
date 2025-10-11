@@ -253,6 +253,14 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    pointer-events: auto;
+    touch-action: none;
+}
+
+/* Prevent video controls on mobile when modals are active */
+body.modal-open .hero-video video {
+    pointer-events: none;
+    touch-action: none;
 }
 
 .hero-overlay {
@@ -1205,8 +1213,11 @@ p {
     
     .site-plan-container {
         margin-top: 2rem;
-        padding: 0 1rem;
+        padding: 0;
         min-height: 80vh; /* Asegurar altura mínima del contenedor */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
     .plan-controls {
@@ -1225,10 +1236,13 @@ p {
     
     .site-map-wrapper {
         margin-bottom: 1.5rem;
-        overflow-x: auto;
-        overflow-y: visible;
+        overflow-x: hidden;
+        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 1rem;
+        padding: 0 1rem 1rem 1rem;
+        display: flex;
+        justify-content: center;
+        max-height: 80vh;
     }
     
     .site-map {
@@ -1236,9 +1250,9 @@ p {
         flex-direction: column;
         gap: 8px;
         padding: 1rem;
-        min-width: 320px;
-        margin: 0;
-        max-width: 100%;
+        min-width: 250px;
+        width: 250px;
+        margin: 0 auto;
         background: var(--bg-light);
         border-radius: var(--border-radius);
         box-shadow: var(--shadow-lg);
@@ -1251,7 +1265,7 @@ p {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
+        padding: 0.8rem;
         border-radius: var(--border-radius);
         background-size: cover;
         background-position: center;
@@ -1383,21 +1397,30 @@ p {
     }
     
     .site-map {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 150px);
-        gap: 4px;
-        padding: 0.6rem;
-        min-width: 320px;
-        max-width: 100%;
-        min-height: 960px; /* Asegurar altura mínima para 6 filas */
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 0.8rem;
+        min-width: 250px;
+        width: 250px;
+        margin: 0 auto;
+        background: var(--bg-light);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-lg);
     }
     
     .site-lot {
-        min-height: 150px;
-        position: relative;
+        width: 100%;
+        min-height: 75px;
+        border: 2px solid transparent;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 0.7rem;
+        border-radius: var(--border-radius);
+        background-size: cover;
+        background-position: center;
+        position: relative;
     }
     
     .lot-overlay {
@@ -1445,11 +1468,16 @@ p {
 /* Small mobile devices (361px to 480px) */
 @media (max-width: 480px) and (min-width: 361px) {
     .site-map {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 130px);
-        gap: 3px;
-        padding: 0.5rem;
-        min-width: 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0.6rem;
+        min-width: 250px;
+        width: 250px;
+        margin: 0 auto;
+        background: var(--bg-light);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-lg);
     }
     
     .site-lot {
@@ -1512,10 +1540,17 @@ p {
     }
     
     .site-lot {
-        min-height: 130px;
+        width: 100%;
+        min-height: 70px;
+        border: 2px solid transparent;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 0.6rem;
+        border-radius: var(--border-radius);
+        background-size: cover;
+        background-position: center;
+        position: relative;
     }
     
     .lot-overlay {
